@@ -1,10 +1,10 @@
 ---
 layout: post
-title: "Raspberry PI команды"
+title: "Blu ray player"
 description: ""
-category: DIY
-image: 
-tags: [fuck, DIY]
+category:
+image:  url
+tags: []
 ---
 {% include JB/setup %}
 
