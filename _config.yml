@@ -1,4 +1,4 @@
-markdown: kramdown
+markdown: redcarpet
 permalink: /:categories/:year/:month/:day/:title 
 encoding: utf-8
 exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md"]
