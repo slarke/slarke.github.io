@@ -1,4 +1,4 @@
-﻿---
+---
 layout: post
 title: "Stress benchmarks"
 category: url
@@ -14,7 +14,7 @@ Futuremark PCMark 8 http://www.futuremark.com/benchmarks/pcmark8
 PiFast http://url.hwbot.org/1ahJi8G
 Super PI 1.90 http://www.superpi.net/
 wPrime210 http://www.wprime.net/
-Intel® Extreme Tuning Utility XTU 5.1.1 https://downloadcenter.intel.com/product/66427/Intel-Extreme-Tuning-Utility-Intel-XTU-
+Intel� Extreme Tuning Utility XTU 5.1.1 https://downloadcenter.intel.com/product/66427/Intel-Extreme-Tuning-Utility-Intel-XTU-
 MAXON CINEBENCH R15 http://www.maxon.net/products/cinebench/overview.html
 FryBench http://downloads.guru3d.com/Frybench-download-2709.html
 Black Hole V4.2 http://www.blackholetec.com/main/benchmrk
