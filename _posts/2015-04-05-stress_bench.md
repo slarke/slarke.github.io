@@ -1,11 +1,11 @@
 ﻿---
 layout: post
-title: "Stress tool & Bencmark for windows"
-description: ""
-category: Compare
+title: "Stress benchmarks"
+category: url
 image: 
-tags: [Stress, Bencmark, Stable]
+tags: [stress, stable, benchmark]
 ---
+{% include JB/setup %}
 
 http://hwbot.org/benchmarks/
 Benchmark
