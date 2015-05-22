@@ -1,21 +1,3 @@
+name: Your New Jekyll Site
 markdown: redcarpet
-permalink: /:categories/:year/:month/:day/:title 
-encoding: utf-8
-exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md"]
-pygments: true
-title : Slark
-tagline: 
-author :
-  name :
-
-JB :
-  version : 0.3.0
-  BASE_PATH : false
-  ASSET_PATH : false
-  archive_path: /archive.html
-  categories_path : /categories.html
-  tags_path : /tags.html
-  atom_path : /atom.xml
-  rss_path : /rss.xml
-  sharing :
-  provider : false
+highlighter: true
