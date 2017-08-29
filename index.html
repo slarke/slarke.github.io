@@ -75,13 +75,13 @@
         <div class="col-sm-8 blog-main">
           
   
-    <article id="post-first-post" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-army" class="article article-type-post" itemscope itemprop="blogPost">
 
   <header class="article-header">
     
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/29/first-post/">first-post</a>
+      <a class="article-title" href="/2017/08/29/army/">first-post</a>
     </h1>
   
 
@@ -90,7 +90,7 @@
 
   <div class="article-meta">
     <div class="article-datetime">
-  <a href="/2017/08/29/first-post/" class="article-date"><time datetime="2017-08-29T18:44:59.000Z" itemprop="datePublished">2017-08-29</time></a>
+  <a href="/2017/08/29/army/" class="article-date"><time datetime="2017-08-29T18:55:23.000Z" itemprop="datePublished">2017-08-29</time></a>
 </div>
 
     
@@ -101,7 +101,8 @@
 
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p>load</p>
+
       
     </div>
 
@@ -111,7 +112,7 @@
     
 
     <footer class="article-footer">
-      <a data-url="http://slarke.github.io/2017/08/29/first-post/" data-id="cj6xy145d0001sw6p2p1zgpg3" class="article-share-link">
+      <a data-url="http://slarke.github.io/2017/08/29/army/" data-id="cj6xyval60000ok6pjvdzfa11" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -125,13 +126,13 @@
 
 
   
-    <article id="post-My-New-Post" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-stream" class="article article-type-post" itemscope itemprop="blogPost">
 
   <header class="article-header">
     
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/20/My-New-Post/">My New Post</a>
+      <a class="article-title" href="/2015/12/21/stream/">Stream rtmp</a>
     </h1>
   
 
@@ -140,18 +141,64 @@
 
   <div class="article-meta">
     <div class="article-datetime">
-  <a href="/2017/08/20/My-New-Post/" class="article-date"><time datetime="2017-08-20T09:49:11.000Z" itemprop="datePublished">2017-08-20</time></a>
+  <a href="/2015/12/21/stream/" class="article-date"><time datetime="2015-12-20T21:00:00.000Z" itemprop="datePublished">2015-12-21</time></a>
 </div>
 
     
     
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/manual/">manual</a>
+  </div>
+
 
   </div>
   <div class="article-inner">
 
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p><a href="https://obsproject.com/forum/resources/how-to-set-up-your-own-private-rtmp-server-using-nginx.50/" target="_blank" rel="external">Источник на английском</a></p>
+<p>Скачиваем необходимые библиотеки</p>
+<pre><code>sudo apt-get install build-essential libpcre3 libpcre3-dev libssl-dev
+</code></pre><p>Скачиваем nginx</p>
+<pre><code>wget http://nginx.org/download/nginx-1.9.5.tar.gz 
+</code></pre><p><a href="http://nginx.org/en/download.html" target="_blank" rel="external">Последняя версия</a></p>
+<p>Скачиваем rtmp модуль</p>
+<pre><code>wget https://github.com/arut/nginx-rtmp-module/archive/master.zip
+</code></pre><p>Распаковываем</p>
+<pre><code>tar -zxvf nginx-1.9.5.tar.gz
+unzip master.zip
+cd nginx-1.9.5
+</code></pre><p>Собираем</p>
+<pre><code>./configure --with-http_ssl_module --add-module=../nginx-rtmp-module-master
+make
+sudo make install
+</code></pre><p>Запускаем сервер</p>
+<pre><code>sudo /usr/local/nginx/sbin/nginx
+</code></pre><p>тест nginx </p>
+<pre><code>http://localhost
+</code></pre><p>сконфигурируем  /usr/local/nginx/conf/nginx.conf </p>
+<pre><code>rtmp {
+        server {
+                listen 1935;
+                chunk_size 4096;
+
+                application live {
+                        live on;
+                        record off;
+                }
+    }
+}
+</code></pre><p><a href="https://github.com/arut/nginx-rtmp-module/wiki/Directives" target="_blank" rel="external">возможные варианты конфигов</a></p>
+<p>Перезапустим сервер<br>    sudo /usr/local/nginx/sbin/nginx -s stop<br>    sudo /usr/local/nginx/sbin/nginx</p>
+<p>Запускаем OBS в настройках указать</p>
+<pre><code>Streaming Service: Custom
+Server: rtmp://&lt;your server ip&gt;/live
+ Play Path/Stream Key: testkey
+</code></pre><p>Проверка потока в vlc</p>
+<pre><code>rtmp://&lt;your server ip&gt;/live/testkey
+</code></pre><p><a href="http://www.helping-squad.com/nginx-rtmp-configuration-and-possible-solutions/" target="_blank" rel="external">Настройка под виндой</a></p>
+<p>Docker nginx?</p>
+
       
     </div>
 
@@ -161,11 +208,819 @@
     
 
     <footer class="article-footer">
-      <a data-url="http://slarke.github.io/2017/08/20/My-New-Post/" data-id="cj6xy144v0000sw6pyw3qj8cc" class="article-share-link">
+      <a data-url="http://slarke.github.io/2015/12/21/stream/" data-id="cj6xyqjjx000lcs6pzcrwfhhu" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/manual/">manual</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/torrent/">torrent</a></li></ul>
+
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-utorrent" class="article article-type-post" itemscope itemprop="blogPost">
+
+  <header class="article-header">
+    
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/19/utorrent/">Config utorrent</a>
+    </h1>
+  
+
+
+  </header>
+
+  <div class="article-meta">
+    <div class="article-datetime">
+  <a href="/2015/10/19/utorrent/" class="article-date"><time datetime="2015-10-18T21:00:00.000Z" itemprop="datePublished">2015-10-19</time></a>
+</div>
+
+    
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/manual/">manual</a>
+  </div>
+
+
+  </div>
+  <div class="article-inner">
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>allow_pairing<br>Параметр регулирует возможность для внешних приложений получать право постоянного доступа к uTorrrent. (В настоящее время, в целях безопасности, возможен доступ только с локального компьютера.)<br>Включение параметра дает возможность приложению определить что uTorrent запущен, и запросить у пользователя разрешение на постоянный доступ к нему.<br>При получении разрешения от пользователя приложение получает доступ к WebUI. В дальнейшем планируется расширение возможностей.<br>Эта возможность не работает если net.discoverable отключено.</li>
+<li><code>bt.allow_same_ip</code><br>Позволяет множественные входящие соединения с одного IP-адреса.</li>
+<li><code>bt.auto_ul_factor</code>С помощью этой опции можно задать максимальное ограничение, которое будет вноситься автоматичской системой ограничения скорости отдачи, по отношению ко всей величине канала. Измеряется в процентах.</li>
+<li><code>bt.auto_ul_interval</code> Этой опцией можно задать интервал времени по истечению которого, программа будет проводить автоматическую оценку ограничения по скорости отдачи. Каждый раз, когда интервал будет достигнут, действующее ограничение по скорости будет отменяться и начнется оценка канала для определения нового ограничения. Вводится в секундах.</li>
+<li><code>bt.auto_ul_min</code> Эта опция определяет минимальную скорость отдачи, которую программа будет использовать в автоматическом режиме. Если средняя скорость будет ниже этого значения, то µTorrent не будет занижать скорость ниже, чем указано в данной настройке. Указывается в Байтах в секунду.</li>
+<li><code>bt.auto_ul_sample_average</code> В данной опции можно указать как много времени программа будет затрачивать для вычисления среднего значения количества исходящих данных (скользящее окно).</li>
+<li><code>bt.auto_ul_sample_window</code> В данной опции можно указать количество времени, которое будет затрачено программой для определения качества канала. Задается в секундах.</li>
+<li><code>bt.ban_ratio</code> Здесь можно задать отношение хороших пакетов переданных пиром к плохим, по достижению которого пир будет заблокирован. Данная настройка будет действовать только когда значение указанное в пункте bt.ban_threshold будет превышено, а опция <code>bt.use_ban_ratio</code> будет действовать.</li>
+<li><code>bt.ban_threshold</code> В данной опции можно указать максимальное число ошибок от одного пира, после которого пир будет заблокирован полностью или начнет действовать правило bt.ban_ratio.</li>
+<li><code>bt.compact_allocation</code> При скачивании создавать файлы на диске как в языке Python для того, чтобы сэкономить место. Нельзя использовать совместно с опцией «partfile». Эта возможность может работать некорректно, если вы получаете ошибку «Element not found», то это как раз тот случай.</li>
+<li><code>bt.connect_speed</code> Количество соединений, которые инициирует или принимает uTorrent в секунду. Помните, слишком большое значение этого параметра может негативно отразиться на стабильности и скорости вашего интернет-канала.</li>
+<li><code>bt.enable_tracker</code> Разрешает встроенный трекер с адресом <a href="http://ваш_IP:порт/announce" target="_blank" rel="external">http://ваш_IP:порт/announce</a>.</li>
+<li><code>bt.graceful_shutdown</code> При включенном параметре (true) клиент при завершении своей работы будет пытаться отправлять статистику на трекер до тех пор, пока она не уйдет вся по каждому торренту, в противном случае, будет сделана всего одна попытка без всяких проверок. При этом визуально клиента на экране не будет, но он будет висеть в памяти не пугайтесь. Время до полного завершения программы зависит от качества вашего соединения до трекера, от загруженности самого трекера и от количества активных торрентов в клиенте.</li>
+<li><code>bt.multiscrape</code> Разрешает multi-scrape — посылание infohash сразу нескольких торрентов в одном scrape запросе. Нет необходимости менять эту опцию, поскольку µT сам автоматически определяет когда трекер не поддерживает multi-scrape.</li>
+<li><code>bt.no_connect_to_services</code> Не устанавливать соединения с клиентами, использующими порты прослушивания, прописанные в bt.no_connect_to_services_list . Включайте, если ваш антивирус недоволен, и вы не хотите выключать в нём автопроверку почты.</li>
+<li><code>bt.no_connect_to_services_list</code> Список портов, которые uTorrent будет игнорировать при включенной опции bt.no_connect_to_services.</li>
+<li><code>bt.prio_first_last_piece</code> Пытаться в первую очередь скачать первый и последний кусок каждого файла.</li>
+<li><code>bt.ratelimit_tcp_only</code> Функция дает возможность выбора протокола для глобального ограничения скорости. Только TCP, или все протоколы.</li>
+<li><code>bt.scrape_stopped</code> Разрешить scrape для полностью остановленных заданий. По умолчанию выключено, для rutracker.org так и оставить.</li>
+<li><code>bt.send_have_to_seed</code> Разрешает посылание «have» сообщений (о том, что у вас появился новый кусок) сидам.</li>
+<li><code>bt.set_sockbuf</code> Отладочная опция для автоопределения размера TCP буфера (so_sndbuf) и регулирования его в зависимости от вашей скорости отдачи. Она не регулирует его основываясь на задержке (latency).</li>
+<li><code>bt.shutdown_tracker_timeout</code> Данная функция устанавливает максимальное количество времени, которое при выходе uTorrent будет ждать связи с каждым трекером. При значении 0, uTorrent будет ждать связи бесконечно, пока не получит ответ от трекера.</li>
+<li><code>bt.shutdown_upnp_timeout</code> Данная функция устанавливает максимальное количество времени, при котором будет пытаться задействовать переадресацию порта upnp для маршрутизатора.</li>
+<li><code>bt.tcp_rate_control</code> Включение этой опции указывает μTorrent использовать информацию из UTP транспорта в качестве подсказки для ограничения скорости передачи данных TCP. Иначе говоря динамически поджимает TCP так, что бы он не превышал глобальный лимит скорости, вне зависимости от того, включено ли ограничение для uTP. Работает в паре с функцией bt.ratelimit_tcp_only</li>
+<li><code>bt.transp_disposition</code> Контролирует какой транспорт должен использоваться для исходящих (uTorrent 1.8.2) соединений (это значит, что он пропускает только те соединения, которые разрешены выставленным параметром). Допустимые значения параметра:</li>
+</ul>
+<blockquote>
+<pre><code>Для uTorrent 1.8.2
+0 : попытка использования только TCP
+1 : попытка использования обоих TCP и uTP, сброс TCP если uTP прошел успешно
+2 : попытка использования uTP (если поддерживается), иначе TCP
+3 : попытка использования только uTP
+Начиная с версии 2.0.1 RC2 (build 18973) и выше (в ранних нету нового заголовка uTP)
+1 : разрешить инициировать исходящие TCP-соединения.
+2 : разрешить инициировать исходящие uTP-соединения.
+4 : разрешить принимать входящие TCP-соединения.
+8 : разрешить принимать входящие uTP-соединения.
+16 : использовать новый uTP заголовок, данная опция повышает производительность, однако она не совместима с клиентами не поддерживающими её.
+</code></pre></blockquote>
+<p>Начиная с версии 1.8.3 для значения этого параметра используется сумма отдельных составляющих этого параметра 1+2+4+8, причём некоторые слагаемые могут быть исключены, например 1+4+8=13 (до версии 2.0.1 RC2 (build 18973) без нового заголовка uTP (16)). Для версии 1.8.2 выставляется лишь конкретный параметр (0, 1, 2, 3) для исходящих соединений.bt.transp_disposition без исходящих uTP - хороший вариант при плохом отношении провайдера к uTP.</p>
+<ul>
+<li><code>bt.use_ban_ratio</code> Данная опция включает бан пира по коэффициенту, что указан в bt.ban_threshold.</li>
+<li><code>bt.use_rangeblock</code> Позволяет uTorrent автоматически определять пиров, отсылающих поврежденные пакеты и банить ряд этих IP, кроме тех единичных IP–адресов, которые уже были забанены раннее. Когда uTorrent забанит 4 IP-адреса из одного /24 CIDR блока (содержащего в общем количестве 256 адресов), он забанит весь этот блок. Если uTorrent забанит 4 CIDR блока размера /24 (256 IP-адресов), которые входят в один /16 CIDR блок (64 000 адресов), он забанит весь /16 CIDR блок. Когда он забанит 4 /16 CIDR блока, он забанит /8 CIDR блок (16 000 000 IP–адресов).</li>
+<li><code>dht.rate(байт/с)</code> Контролирует как много трафика может использовать DHT. -1 означает авторегулировку: ваша максимальная скорость отдачи / 16, но не меньше 512 и не больше 8192 байт/с.</li>
+<li><code>diskio.cache_reduce_minutes</code> Функция задает интервал, через который программа будет пытаться уменьшить свой кэш</li>
+<li><code>diskio.cache_stripe</code> Задаёт в КБ размер блока чтения из собственного кэша. Как блок обращения к hdd следует задавать степенями двойки. Можно подобрать размер для уменьшения отношения “из файла” к “из кэша” в статистике работы диска.</li>
+<li><code>diskio.coalesce_write_size</code> Определяет размер предела, по достижению которого части файла будут объединяться в один. Значение параметра указывается в байтах в секунду и работает, только если опция diskio.coalesce_writes включена.</li>
+<li><code>diskio.coalesce_writes</code> Данный параметр позволяет uTorrent объединять части файла воедино, чтобы уменьшить их количество. Опция не влияет на скорость загрузки, но может задействовать значительные ресурсы процессора и памяти.<br>Пытается минимизировать количество вызовов к WriteFile. Может помочь добиться немного меньшего количества записей на диск, но за счёт использования дополнительных ресурсов памяти и процессора.</li>
+<li><code>diskio.flush_files</code> Закрывать file handles каждую минуту. Такое поведение может иногда наблюдаемый эффект некорректного поведения системного кэша Windows, в результате чего случаются утечки памяти.</li>
+<li><code>diskio.mark_of_the_web</code> Опция добавляет запись NTFS ADS о том что файл был скачан из интернета</li>
+<li><code>diskio.max_write_queue</code> Функция устанавливает максимальное значение очереди записи на диск перед тем, как покажет сообщение “Диск перегружен”</li>
+<li><code>diskio.no_zero</code> Активация функции (true) отключает заполнение нулями размещённого, но не записанного файла. Её можно включить только из под учетной записи администратора. Опция увеличивает скорость размещения файлов, но появляется возможность того, что некоторые данные не будут полностью удалены с компьютера и затем могут быть использованы другими пользователями и приложениями.<br>При выставлении параметра в false есть вероятность получить ошибку “Диск перегружен”.</li>
+<li><code>diskio.resume_min</code> Функция устанавливает наличный размер в мегабайтах, после которого включается сидирование большого торрента</li>
+<li><code>diskio.smart_hash</code> Вычислять контрольную сумму данных прямо в памяти, вместо того, чтобы записывать данные на диск, считывать, и затем вычислять контрольную сумму. Должно уменьшить количество считываний с диска.</li>
+<li><code>diskio.smart_sparse_hash</code> Опция является решением проблемы возвращения некорректных данных uTorrent о незавершенных файлах, которая может повредить данные, присутствующие на диске раннее.</li>
+<li><code>diskio.sparse_files</code> Резервировать места под файлы ровно столько, сколько необходимо, работает только на NTFS диске, увеличивает фрагментацию.</li>
+<li><code>diskio.use_partfile</code> Использовать «partfile» для хранения кусков данных, частично принадлежащих файлам, которые вы выбрали «Не скачивать». Это поведение по умолчанию, и если вы поставите эту опцию в false, то µT придётся некоторые файлы «Не скачивать» создавать на диске целиком.</li>
+<li><code>gui.auto_restart</code> Режим авто-перезапуска uTorrent после сбоя.<br>Включение позволяет автоматический перезапуск uT если сбой произошел в то время, когда uT был свернут и пользователь не использовал компьютер более минуты. Анонимное сообщение о сбое будет отправлено разработчикам автоматически, crashdump записан не будет.<br>Если сбой будет происходить чаще чем раз в час, то при следующем сбое uTorrent проигнорирует эту настройку, выведет стандартный диалог сообщения о сбое и будет ожидать реакции пользователя.</li>
+<li><code>gui.bypass_search_redirect</code> При использовании поля поиска в окне µT переходить на поисковые сайты напрямую, таким образом не показывая рекламу с сайта search.utorrent.com.</li>
+<li><code>gui.compat_diropen</code> Использовать другое диалоговое окно для выбора папок на диске; для тех, у кого проблемы с диалоговым окном по умолчанию.</li>
+<li><code>gui.default_del_action</code> Устанавливает режим удаления задания, используемый по умолчанию. Эту настройку лучше изменять так: клик правой кнопкой мыши на кнопке удаления задания, и выбрать требуемую установку.</li>
+<li><code>gui.delete_to_trash</code> Перемещать удалённые файлы в корзину. Опцию можно также активировать если сделать клик правой кнопкой мыши на кнопке удаления задания и выбрать «Move to trash if possible».</li>
+<li><code>gui.graph_legend</code> В графике отдачи и загрузки отображается информация о значении линий.</li>
+<li><code>gui.graph_overhead</code> Из графика скоростей во вкладке “Скорость” можно убрать показ служебного трафика, если выбран график “Отдача и загрузка”. При выключенной опции отдельно служебный трафик можно посмотреть выставив во вкладке “Скорость” “Служебный трафик”.</li>
+<li><code>gui.graph_tcp_rate_control</code> В графике скоростей во вкладке “Скорость” появляется отображение ограничений скорости по TCP протоколу.</li>
+<li><code>gui.graphic_progress</code> Создает графическую оболочку, отображающую процент загрузки в поле “Done (Загружено)”.</li>
+<li><code>gui.log_date</code> uTorrent будет вносить дату во временные метки в журнале.</li>
+<li><code>gui.overhead_in_statusbar</code> Включает отображение служебного трафика в строке состояния (внизу окна).</li>
+<li><code>gui.piecebar_progress</code> uTorrent будет отображать в столбце “Done” прогресс загруженных частей, а не процентное соотношение загруженного, к полному размеру файла. Работает только, если gui.graphic_progress включен, а также убирает отображение процента загруженного.</li>
+<li><code>gui.report_problems</code> Данной опцией можно отключить отправку разработчикам информации о разного рода зависаниях и проблемах с вашим uTorrent. В журнале это выглядит примерно так:<blockquote>
+<pre><code>[2010-05-06 xx:yy:zz] Reporting hang diagnostic information.
+[2010-05-06 xx:yy:zz] http://www.utorrent.com/report_probl...hblah.somedata
+[2010-05-06 xx:yy:zz] Hang reported successfully:
+gui.show_notorrents_node
+</code></pre></blockquote>
+</li>
+</ul>
+<ul>
+<li><code>gui.show_notorrents_node = true</code> - При запуске µTorrent, если у вас нет заданий, Вам будет предложено воспользоваться поиском контента.</li>
+<li><code>gui.show_notorrents_node = true</code><br><code>gui.show_notorrents_node = false</code> - При запуске µTorrent, если у вас нет заданий, Вам не будет предложено воспользоваться поиском. Будет отображен пустой торрентлист.</li>
+<li><code>gui.show_notorrents_node = false</code></li>
+<li><code>gui.show_status_icons_in_dl_list</code> Включение и выключение графического отображения статуса задания в клиенте - качает, раздаёт, пауза.<br>скрытый текст</li>
+<li><code>gui.tall_category_list</code> Изменяет размер списка категорий, который находится слева. При включении параметра он становится по высоте на всю область программы, а при отключении, уменьшается в размере до панели полной информации о торренте.</li>
+<li><code>gui.transparent_graph_legend</code> Если включено, эта опция указывает μTorrent фон позади легенды сделать прозрачным (в противном случае, фон непрозрачный).<br>Не рекомендуется включать, потому что из-за включения данной функции наблюдалась сильная загрузка процессора.</li>
+<li><code>gui.update_rate</code> Интервал обновления интерфейса программы в миллисекундах, минимум 500мс.</li>
+<li><code>ipfilter.enable</code> Отключает/включает блокировку IP-адресов, если они указаны в файле ipfilter.dat. Возможна ситуация, когда при включенном фильтре вообще перестает качать/раздавать.</li>
+<li><code>isp.bep22</code> Опция включает поиск локальных ISP–трекеров при помощи серий обратных DNS запросов. Данные трекеры могут обрабатывать информацию о количестве пиров и хеш-данных. Также в ISP–трекерах не отображаются публичные торренты. Тема обсуждения - isp.bep22 - автоматическое добавление провайдером дополнительного адреса ретрекера во все торренты юзеров</li>
+<li><code>isp.peer_policy_url</code> См. тему использование списка приоритетных адресов</li>
+<li><code>net.bind_ip</code> Если у вас в системе несколько сетевых адаптеров, то укажите здесь IP адрес адаптера, который µT должен использовать для входящих соединений.</li>
+<li><code>net.calc_overhead</code> Если он включен, то при настройке скорости учитывается и служебный трафик.</li>
+<li><code>net.disable_ipv6</code> Включает/выключает ipv6. Начиная с версии 2.0.3 ipv6 по умолчанию для WIN7 выключено.</li>
+<li><code>net.discoverable</code> При включении µTorrent ожидает запросы на подключение внешних приложений на одном из предназначенных для этого портов (в настоящий момент это порт 10000) в дополнение к портам, заданным в настройках.<br>Поскольку номера портов заранее известны приложениям, это значительно упрощает их подключение к uTorrent.</li>
+<li><code>net.limit_excludeslocal</code> Определяет должен ли uTorrent учитывать в лимите TransferCap (предел передачи) трафик с локальными пирами.<br>Пиры будут считаться локальными, если они получены через LPD (поиск локальных пиров) или относятся к той же LAN что и uTorrent.<br>Если Transfer Cap (предел передачи) не используется, опция не учитывается нигде.<br>Учтите - этот параметр никак не влияет на ограничения скорости.</li>
+<li><code>net.low_cpu</code> Слегка уменьшает использование процессора. Для очень быстрых каналов выключение этой опции может слегка увеличить скорости.<br>net.max_halfopen<br>Как много полуоткрытых соединений uTorrent может иметь одновременно. Это значение не должно быть выше 8 на непропатченной Windows XP PRO SP2, и выше 4 на непропатченной Windows XP HOME SP2.</li>
+<li><code>net.outgoing_ip</code> Если у вас в системе несколько сетевых адаптеров, то укажите здесь IP адрес адаптера, который µT должен использовать для исходящих соединений.</li>
+<li><code>net.outgoing_max_port</code> Устанавливает верхнюю планку для диапазона исходящего порта. Если в параметре указывается неправильный номер порта или меньше, чем в - net.outgoing_port, то параметр игнорируется и uTorrent будет следовать значению параметра net.outgoing_port.</li>
+<li><code>net.outgoing_port</code> Заставляет µT использовать только этот порт для исходящих соединений (обычно этот порт выбирается случайно для каждого соединения). Только для Windows 2000 и выше. Иногда настройка может не работать корректно. Эта настройка должна использоваться только в исключительных случаях. Может быть использована для уменьшения количества NAT трансляций и таким образом предотвращения зависания некоторых моделей маршрутизаторов. Может быть использована для решения NAT проблемы входящих соединений в некоторых видах NAT.</li>
+<li><code>net.upnp_tcp_only</code> Опция запрещает использование UPnP и UDP портов и задействует вместо них только TCP порты. Может устранить проблему использования некорректно работающих роутеров, которые перезаписывают TCP порты, UDP портами.</li>
+<li><code>net.utp_dynamic_packet_size</code> Управление динамическим размером UDP-пакетов (основа uTP). Дело в том, что в uTP заложен механизм адаптации торрент-клиента под загруженность канала пользователя, и если uTorrent “видит”, что пакеты стали идти слишком медленно, он уменьшает их размер. На практике же подобный подход часто приводил к перегрузке сетевого оборудования, как на стороне пользователя, так и на стороне провайдера. Итак, выставление этой опции в значение false заставит uTorrent пользоваться фиксированными размерами UDP-пакета.</li>
+<li><code>net.utp_initial_packet_size</code> Размер UDP-пакета, определяется как множитель от 150-байт. Проще говоря, UDP-пакет = net.utp_initial_packet_size * 150.<br>Принимает значения от 1 до 8 включительно. Как уже писалось выше, маленький размер пакета может приводить к различным сетевым перегрузкам, поэтому большинству пользователей рациональнее использовать максимальный множитель, т.е. 8.</li>
+<li><code>net.utp_packet size interval</code> Определяет, насколько часто uTP изменяет размер пакета в ответ на условия работы сети. Интервал в секундах. Опция работает при включённом net.utp_dynamic_packet_size</li>
+<li><code>net.utp_receive_target_delay</code> Этот параметр можно охарактеризовать как аналог пинга между вами и удаленным пиром, с которого вы качаете. При превышении этого значения, uTorrent будет думать, что ваш канал перегружен, и будет уменьшать скорость скачивания. Повышение этого значения по сравнению со стандартным вызвано тем, что интернет-сети у большинства далеки от идеала, и теоретически даже между вами и вашим соседом пинг может быть более 100, хотя ни вы, ни он не забили свой интернет-канал.<br>Оптимальное значение этого параметра лучше подобрать экспериментально, оно может достигать 500 и более (рекомендуется начать с 300).<br>Значение параметра - в миллесекундах.</li>
+<li><code>net.utp_target_delay</code> Аналогичный вышесказанному параметр, но отвечает за таймаут при отдаче.</li>
+<li><code>net.wsaevents</code> Если у вас странные проблемы с файерволом, можно попробовать подкрутить эту настройку - уменьшать значение по единичке и смотреть, будет ли разница.</li>
+<li><code>peer.disconnect_inactive</code> Отключаться от неактивных пиров после определённого периода времени (300 секунд по умолчанию). Однако клиент не будет отключаться, если общее число пиров в трое меньше максимального количества соединений на задание.</li>
+<li><code>peer.disconnect_inactive_interval</code> Интервал времени в секундах для предыдущей опции, значения меньше 300 игнорируются</li>
+<li><code>peer.lazy_bitfield</code> Общаться с другими клиентами немного по-другому, иногда помогает против некоторых интернет провайдеров, которые специально препятствуют сидированию.</li>
+<li><code>peer.resolve_country</code> Использовать DNSBL сервис для показа флагов стран в списке пиров. Нельзя использовать одновременнно с файлом flags.conf.</li>
+<li><code>rss.feed_as_default_label</code> Опция проверяет, чтобы добавляемый из RSS-ленты торрент имел в качестве метки торрента имя ленты.</li>
+<li><code>rss.smart_repack_filter</code> uTorrent будет помещать ленты с пометкой REPACK выше в RSS списке, чем без данной пометки.</li>
+<li><code>rss.update_interval</code> Интервал обновления RSS в минутах. 5 минут для значений менее 5.</li>
+<li><code>sys.enable_wine_hacks</code> Настройка устраняет некоторые багги, при использовании Wine. На работу Windows никак не влияет и задействуется только после перезагрузки uTorrent.</li>
+<li><code>queue.dont_count_slow_dl</code> При подсчёте «активных» загрузок не учитывать задания со скоростью скачивания меньше чем указано в queue.slow_dl_threshold (по умолчанию- 1000 байт/с).</li>
+<li><code>queue.dont_count_slow_ul</code> При подсчёте «активных» раздач не учитывать задания со скоростью отдачи меньше чем указано в queue.slow_ul_threshold (по умолчанию- 1000 байт/с)</li>
+<li><code>queue.prio_no_seeds</code> При сидировании давать приоритет заданиям, на раздаче которых нет других сидов.</li>
+<li><code>queue.slow_dl_threshold</code> Уровень, по которому uTorrent различает быстрые и медленные закачки. Скорость ниже уровня, значит задача медленная, выше, значит активная. Указывается байтах в секунду. Используется при включенном параметре -queue.dont_count_slow_dl.</li>
+<li><code>queue.slow_ul_threshold</code> Уровень для раздающих задач, работает аналогично с queue.slow_dl_threshold. Используется при включенном параметре queue.dont_count_slow_ul.</li>
+<li><code>queue.use_seed_peer_ratio</code> Создает очередь на раздачу торрентов. Приоритет отдается тем торрентам, у которых сидов меньше чем пиров. Если пиров не имеется и параметр queue.dont_count_slow_ul отключен, задача будет помещена в конец очереди.</li>
+<li><code>webui.token auth</code> Параметр создает возможность мнимого подключения к Web UI, которое может предотвратить запросы с перекрестных сайтов и использование вашей учетной записи в корыстных целях.</li>
+</ul>
+
+      
+    </div>
+
+    
+      
+
+    
+
+    <footer class="article-footer">
+      <a data-url="http://slarke.github.io/2015/10/19/utorrent/" data-id="cj6xysfx1000cpk6ptelkn8m0" class="article-share-link">
+        <i class="fa fa-share"></i> Share
+      </a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/manual/">manual</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/torrent/">torrent</a></li></ul>
+
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-deanon" class="article article-type-post" itemscope itemprop="blogPost">
+
+  <header class="article-header">
+    
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/15/deanon/">Deanon</a>
+    </h1>
+  
+
+
+  </header>
+
+  <div class="article-meta">
+    <div class="article-datetime">
+  <a href="/2015/10/15/deanon/" class="article-date"><time datetime="2015-10-14T21:00:00.000Z" itemprop="datePublished">2015-10-15</time></a>
+</div>
+
+    
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/url/">url</a>
+  </div>
+
+
+  </div>
+  <div class="article-inner">
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Поисковые-системы"><a href="#Поисковые-системы" class="headerlink" title="Поисковые системы"></a>Поисковые системы</h2><ul>
+<li><a href="https://duckduckgo.com/" target="_blank" rel="external">https://duckduckgo.com/</a> анонимный поисковик</li>
+<li><a href="https://www.shodan.io/" target="_blank" rel="external">https://www.shodan.io/</a> поисковая система индексирующая и каталогизирующая различные устройства подключенные к интернету<br><a href="http://ru.scribd.com/doc/34507835/SHODAN-for-Penetration-Testers-The-Next-HOPE" target="_blank" rel="external">Небольшой мануал</a></li>
+<li><a href="https://startpage.com/" target="_blank" rel="external">https://startpage.com//</a> анонимный поисковик</li>
+<li><a href="https://ixquick.com/" target="_blank" rel="external">https://ixquick.com/</a> анонимный поисковик</li>
+<li><a href="http://www.mmnt.ru/" target="_blank" rel="external">http://www.mmnt.ru/</a> Мультисервисная поисковая система</li>
+<li><a href="http://yacy.net/" target="_blank" rel="external">http://yacy.net/</a> p2p поиск</li>
+<li><a href="http://www.insecam.org/" target="_blank" rel="external">https://www.insecam.org/</a> Камеры</li>
+<li><a href="http://nerdydata.com/" target="_blank" rel="external">http://nerdydata.com/</a> исследование веб страниц поиск по коду страницы</li>
+<li><a href="http://www.zuula.com/" target="_blank" rel="external">http://www.zuula.com/</a> одновременный поиск в нескольких системах</li>
+<li><a href="http://search.carrot2.org/stable/search" target="_blank" rel="external">http://search.carrot2.org/stable/search</a> </li>
+<li><a href="https://www.qwant.com" target="_blank" rel="external">https://www.qwant.com</a></li>
+<li><a href="https://www.exalead.com/search/" target="_blank" rel="external">https://www.exalead.com/search/</a></li>
+</ul>
+<h2 id="Люди"><a href="#Люди" class="headerlink" title="Люди"></a>Люди</h2><ul>
+<li><a href="https://egrul.nalog.ru/" target="_blank" rel="external">https://egrul.nalog.ru/</a> Сведения о государственной регистрации юридических лиц, индивидуальных предпринимателей, крестьянских (фермерских) хозяйств</li>
+<li><a href="https://yandex.ru/people/search" target="_blank" rel="external">https://yandex.ru/people/search</a></li>
+<li><a href="http://www.yasni.com/" target="_blank" rel="external">http://www.yasni.com/</a></li>
+<li><a href="https://pipl.com/" target="_blank" rel="external">https://pipl.com/</a></li>
+<li><a href="http://knowem.com/" target="_blank" rel="external">http://knowem.com/</a></li>
+<li><a href="http://kaimi.ru/ps/" target="_blank" rel="external">http://kaimi.ru/ps/</a></li>
+<li><a href="http://entitycube.research.microsoft.com/" target="_blank" rel="external">http://entitycube.research.microsoft.com/</a></li>
+</ul>
+<p><a href="http://www.touchgraph.com/seo" target="_blank" rel="external">http://www.touchgraph.com/seo</a></p>
+<h2 id="Поиск-по-картинкам"><a href="#Поиск-по-картинкам" class="headerlink" title="Поиск по картинкам"></a>Поиск по картинкам</h2><ul>
+<li><a href="https://www.google.com/imghp" target="_blank" rel="external">https://www.google.com/imghp</a></li>
+<li><a href="https://yandex.ru/images/" target="_blank" rel="external">https://yandex.ru/images/</a></li>
+<li><a href="https://www.tineye.com/" target="_blank" rel="external">https://www.tineye.com/</a></li>
+</ul>
+<p><a href="https://vk.com/feed?section=photos" target="_blank" rel="external">https://vk.com/feed?section=photos</a><br>copy:photo_XXXX_XXXX (right url)</p>
+<p><a href="https://www.how-old.net/" target="_blank" rel="external">https://www.how-old.net/</a></p>
+<p>Основные операторы:</p>
+<ul>
+<li>site:название_сайта поиск в пределах сайта или домена</li>
+<li>filetype:расширение_файла – находит файлы с заданным расширением </li>
+<li>ext:расширение_файла – ищет необычные расширения передает более точные результаты, чем оператор filetype. </li>
+<li>link:название_сайта  - кто ссылается на сайт </li>
+<li>cache:название_сайта  - вывести кэшированную версию для указанного сайта. </li>
+<li>intitle:ключевое_слово  -  найти  страницы,  содержащие  ключевое  слово  или  фразу  в  заголовке </li>
+<li>inurl:ключевое<em>слово -  найти  страницы,  содержащие  ключевое</em>слово  в  своем  адресе </li>
+<li>intext:слово - ищет указанное слово только в теле страницы, игнорируя заголовки, тексты ссылок и прочее.<br>inancor:ключевое слово - ищет текст в ссылках, т.е. внутри тегов</li>
+</ul>
+<p><a href="https://www.google.ru/advanced_search" target="_blank" rel="external">https://www.google.ru/advanced_search</a></p>
+<p><a href="http://www.exploit-db.com/google-dorks/" target="_blank" rel="external">http://www.exploit-db.com/google-dorks/</a></p>
+<p><a href="http://hrazvedka.ru/poisk/poiskoviki.html" target="_blank" rel="external">http://hrazvedka.ru/poisk/poiskoviki.html</a></p>
+
+      
+    </div>
+
+    
+      
+
+    
+
+    <footer class="article-footer">
+      <a data-url="http://slarke.github.io/2015/10/15/deanon/" data-id="cj6xysfwl0009pk6p80ys980q" class="article-share-link">
+        <i class="fa fa-share"></i> Share
+      </a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/anonymity/">anonymity</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/search/">search</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/urls/">urls</a></li></ul>
+
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-windows" class="article article-type-post" itemscope itemprop="blogPost">
+
+  <header class="article-header">
+    
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/09/09/windows/">Windows 7, 8, 10</a>
+    </h1>
+  
+
+
+  </header>
+
+  <div class="article-meta">
+    <div class="article-datetime">
+  <a href="/2015/09/09/windows/" class="article-date"><time datetime="2015-09-08T21:00:00.000Z" itemprop="datePublished">2015-09-09</time></a>
+</div>
+
+    
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/url/">url</a>
+  </div>
+
+
+  </div>
+  <div class="article-inner">
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li><a href="https://github.com/WindowsLies/BlockWindows/" target="_blank" rel="external">https://github.com/WindowsLies/BlockWindows/</a></li>
+<li><a href="https://github.com/Nummer/Destroy-Windows-10-Spying" target="_blank" rel="external">https://github.com/Nummer/Destroy-Windows-10-Spying</a></li>
+<li><a href="http://www.hakspek.com/security/updates-make-windows-7-and-8-spy-on-you-like-windows-10/" target="_blank" rel="external">http://www.hakspek.com/security/updates-make-windows-7-and-8-spy-on-you-like-windows-10/</a></li>
+<li><a href="http://blog.kplus.pro/adm/windows-7-8-disable-telemetry.html" target="_blank" rel="external">http://blog.kplus.pro/adm/windows-7-8-disable-telemetry.html</a></li>
+</ul>
+<p>Updates:</p>
+<ul>
+<li>KB971033  –  проверка активации</li>
+<li>KB2505438</li>
+<li>KB2670838 – только Windows 7 (нарушает работу Aero и смазывает шрифты на некоторых веб-сайтах)</li>
+<li>KB2952664 – подготавливает систему к обновлению на Windows 10 (отправляет массу данных телеметрии в Microsoft, может повредить системные файлы)</li>
+<li>KB2976978 – подготавливает систему к обновлению на Windows 10</li>
+<li>KB2977759 – подготавливает систему к обновлению на Windows 10, устанавливает средства сбора телеметрии</li>
+<li>KB2990214 – подготавливает систему к обновлению на Windows 10</li>
+<li>KB3021917 – подготавливает систему к обновлению на Windows 10</li>
+<li>KB3022345 – устанавливает сервис диагностического слежения, может повредить системные файлы</li>
+<li>KB3035583 – скачивает бесплатный апгрейд на Windows 10</li>
+<li>KB3044374 – подготавливает систему к обновлению на Windows 10</li>
+<li>KB3050265 – должен исправлять ошибки с обновлением Windows, но также изменяет системные файлы для будущей установки Windows 10</li>
+<li>KB3050267 – подготавливает систему к обновлению на Windows 10</li>
+<li>KB3068708 – устанавливает сервис телеметрии, подготавливает систему к обновлению на Windows 10</li>
+<li>KB2922324 – отозван, нужно деинсталлировать в любом случае</li>
+<li>KB3014460 – только Windows 8</li>
+<li>KB3015249 – добавляет еще больше телеметрии</li>
+<li>KB3065987 – производит «улучшения» клиента обновления Windows (на самом деле никаких улучшений не замечено)</li>
+<li>KB3075249 – добавляет еще телеметрии</li>
+<li>KB3075851 – производит «улучшения» клиента обновления Windows (на самом деле никаких улучшений не замечено)</li>
+<li>KB3080149 – добавляет еще телеметрии</li>
+</ul>
+<p><a href="https://raw.githubusercontent.com/slarke/slarke.github.io/master/files/BlockWindows.bat" target="_blank" rel="external">BlockWindows.bat</a></p>
+
+      
+    </div>
+
+    
+      
+
+    
+
+    <footer class="article-footer">
+      <a data-url="http://slarke.github.io/2015/09/09/windows/" data-id="cj6xysfwl0006pk6pukx1y81z" class="article-share-link">
+        <i class="fa fa-share"></i> Share
+      </a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/spying/">spying</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/urls/">urls</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/windows/">windows</a></li></ul>
+
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-bench" class="article article-type-post" itemscope itemprop="blogPost">
+
+  <header class="article-header">
+    
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/04/05/bench/">Benchmarks,Test</a>
+    </h1>
+  
+
+
+  </header>
+
+  <div class="article-meta">
+    <div class="article-datetime">
+  <a href="/2015/04/05/bench/" class="article-date"><time datetime="2015-04-04T21:00:00.000Z" itemprop="datePublished">2015-04-05</time></a>
+</div>
+
+    
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/url/">url</a>
+  </div>
+
+
+  </div>
+  <div class="article-inner">
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="http://hwbot.org/benchmarks/" target="_blank" rel="external">http://hwbot.org/benchmarks/</a></p>
+<h1 id="Benchmarks"><a href="#Benchmarks" class="headerlink" title="Benchmarks"></a>Benchmarks</h1><h2 id="CPU"><a href="#CPU" class="headerlink" title="CPU"></a>CPU</h2><ul>
+<li><a href="http://www.futuremark.com/benchmarks/pcmark8" target="_blank" rel="external">Futuremark PCMark 8</a></li>
+<li><a href="http://url.hwbot.org/1ahJi8G" target="_blank" rel="external">PiFast</a></li>
+<li><a href="http://www.superpi.net/" target="_blank" rel="external">Super PI 1.90</a></li>
+<li><a href="http://www.wprime.net/" target="_blank" rel="external">wPrime210</a></li>
+<li><a href="https://downloadcenter.intel.com/product/66427/Intel-Extreme-Tuning-Utility-Intel-XTU-" target="_blank" rel="external">Intel Extreme Tuning Utility XTU 5.1.1</a></li>
+<li><a href="http://www.maxon.net/products/cinebench/overview.html" target="_blank" rel="external">MAXON CINEBENCH R15</a></li>
+<li><a href="http://downloads.guru3d.com/Frybench-download-2709.html" target="_blank" rel="external">FryBench</a></li>
+<li><a href="http://www.blackholetec.com/main/benchmrk" target="_blank" rel="external">Black Hole V4.2</a></li>
+<li><a href="http://www.primatelabs.com/geekbench/" target="_blank" rel="external">Geekbench 3.3.2</a></li>
+<li><a href="http://forum.hwbot.org/showthread.php?t=95027" target="_blank" rel="external">Processing Power 1.2.2</a></li>
+<li><a href="http://rog.asus.com/rog-pro/realbench-v2-leaderboard/" target="_blank" rel="external">RealBench 2.41</a></li>
+<li><a href="http://virgilioborges.com.br/hyperpi/" target="_blank" rel="external">hyper_pi_0.99</a></li>
+<li><a href="http://www.maxxpi.net/pages/downloads.php" target="_blank" rel="external">MaxxPi</a></li>
+</ul>
+<h2 id="GPU"><a href="#GPU" class="headerlink" title="GPU"></a>GPU</h2><ul>
+<li><a href="http://sourceforge.net/projects/hwbotaquamark3/files/" target="_blank" rel="external">Aquamark3</a></li>
+<li><a href="http://blogs.catzilla.com/download" target="_blank" rel="external">Catzilla</a></li>
+<li><a href="https://unigine.com/products/heaven/" target="_blank" rel="external">Unigine Heaven Benchmark</a></li>
+<li><a href="http://www.3dmark.com/" target="_blank" rel="external">3DMark</a></li>
+<li><a href="https://www.overclockers.at/news/gpupi-international-support-thread" target="_blank" rel="external">GPUPI 2.0</a></li>
+<li><a href="http://www.luxrender.net/wiki/LuxMark" target="_blank" rel="external">luxmark v3.0</a></li>
+<li><a href="http://www.ozone3d.net/benchmarks/physx-fluidmark/" target="_blank" rel="external">FluidMark_Setup_v1.5.2</a></li>
+<li><a href="http://www.ozone3d.net/benchmarks/shadertoymark/" target="_blank" rel="external">ShaderToyMark 0.3.0</a></li>
+<li><a href="http://www.shadermark.com/start.html" target="_blank" rel="external">Shadermark</a></li>
+</ul>
+<h1 id="Stable-stress"><a href="#Stable-stress" class="headerlink" title="Stable stress"></a>Stable stress</h1><h2 id="CPU-1"><a href="#CPU-1" class="headerlink" title="CPU"></a>CPU</h2><ul>
+<li><a href="http://www.ocbase.com/" target="_blank" rel="external">OCCTPT4.4.1 OCCT Perestroika</a></li>
+<li><a href="http://www.ozone3d.net/benchmarks/aogenmark/" target="_blank" rel="external">AOGenMark 1.3.0</a></li>
+<li><a href="http://testmem.tz.ru/soft.htm#SNM1" target="_blank" rel="external">S&amp;M1.9.1</a></li>
+<li><a href="http://www.passmark.com/products/" target="_blank" rel="external">PassMark BurnInTest 8.0 Build 1037</a></li>
+<li><a href="http://www.7byte.com/index.php?page=hotcpu" target="_blank" rel="external">Hot CPU Tester Pro 4</a></li>
+<li><a href="http://www.soft.tahionic.com/download-CPU-core-overload/index.html" target="_blank" rel="external">CPU Overload</a></li>
+<li><a href="http://www.cpuburnin.com/" target="_blank" rel="external">CPU Burn-in</a></li>
+<li><a href="http://thesz.diecru.eu/content/cpugrabex.php" target="_blank" rel="external">CPU Grab Ex</a></li>
+<li><a href="https://www.jam-software.de/heavyload/" target="_blank" rel="external">HeavyLoad</a></li>
+<li><a href="http://www.mersenne.org/download/" target="_blank" rel="external">Prime95</a></li>
+<li><a href="http://www.softpedia.com/get/System/Benchmarks/IntelBurnTest.shtml" target="_blank" rel="external">IntelBurnTest</a></li>
+<li><a href="http://testmem.tz.ru/snm.htm" target="_blank" rel="external">S&amp;M1.9.1</a></li>
+</ul>
+<h2 id="GPU-1"><a href="#GPU-1" class="headerlink" title="GPU"></a>GPU</h2><ul>
+<li><a href="http://www.ozone3d.net/benchmarks/fur/" target="_blank" rel="external">FurMark_1.15.1.0</a></li>
+<li><a href="http://www.ozone3d.net/benchmarks/tessmark/" target="_blank" rel="external">TessMark 0.3.0</a></li>
+<li><a href="http://www.geeks3d.com/gputest/download/" target="_blank" rel="external">GpuTest 0.7.0</a></li>
+<li><a href="http://www.ozone3d.net/gpu_caps_viewer/" target="_blank" rel="external">GPU Caps Viewer 1.23.0</a></li>
+<li><a href="http://vmst.sourceforge.net/" target="_blank" rel="external">Video Memory stress test</a></li>
+<li><a href="http://sourceforge.net/projects/cudagpumemtest/" target="_blank" rel="external">CUDA GPU memtest</a></li>
+<li><a href="http://www.geeks3d.com/20140917/msi-kombustor-3-5-0-gpu-burn-in-stress-test-opengl-opencl-benchmark/" target="_blank" rel="external">MSI_Kombustor 3.5.1</a></li>
+</ul>
+<h1 id="Info-test"><a href="#Info-test" class="headerlink" title="Info test"></a>Info test</h1><ul>
+<li><a href="http://www.aida64.com/downloads" target="_blank" rel="external">AIDA64</a></li>
+<li><a href="http://www.sisoftware.net/?f=downandbuy" target="_blank" rel="external">SiSoftware Sandra</a></li>
+<li><a href="http://www.cpuid.com/softwares/cpu-z.html" target="_blank" rel="external">cpu-z_1.72-en</a></li>
+<li><a href="http://www.cpuid.com/softwares/hwmonitor-pro.html" target="_blank" rel="external">hwmonitor pro 1.22</a></li>
+<li><a href="http://www.passmark.com/download/pt_download.htm" target="_blank" rel="external">Passmark PerformanceTest 8</a></li>
+<li><a href="http://crystalmark.info/download/index-e.html" target="_blank" rel="external">Crystalmark</a></li>
+<li><a href="http://www.alex-is.de/" target="_blank" rel="external">AS SSD Benchmark</a></li>
+<li><a href="http://www.ssdaddict.com/" target="_blank" rel="external">Anvils SSD Benchmark</a></li>
+</ul>
+
+      
+    </div>
+
+    
+      
+
+    
+
+    <footer class="article-footer">
+      <a data-url="http://slarke.github.io/2015/04/05/bench/" data-id="cj6xysfwl0003pk6prn4nlywi" class="article-share-link">
+        <i class="fa fa-share"></i> Share
+      </a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/urls/">urls</a></li></ul>
+
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-music_2014" class="article article-type-post" itemscope itemprop="blogPost">
+
+  <header class="article-header">
+    
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/02/24/music_2014/">Музыка 2014</a>
+    </h1>
+  
+
+
+  </header>
+
+  <div class="article-meta">
+    <div class="article-datetime">
+  <a href="/2015/02/24/music_2014/" class="article-date"><time datetime="2015-02-23T21:00:00.000Z" itemprop="datePublished">2015-02-24</time></a>
+</div>
+
+    
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/music/">music</a>
+  </div>
+
+
+  </div>
+  <div class="article-inner">
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Сaribou - Our Love</p>
+<iframe width="100%" height="166" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/162983976&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false">&nbsp;</iframe>
+
+<p>Death From Above 1979 - The Physical World</p>
+<iframe width="100%" height="166" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/157005310&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false">&nbsp;</iframe>
+
+<p>Marmozets - The Weird And Wonderful Marmozets</p>
+<iframe width="100%" height="450" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/10491492&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false">&nbsp;</iframe>
+
+<p>Chevelle - La Gárgola</p>
+<iframe width="560" height="315" src="//www.youtube.com/embed/jwHZ6yVPRpU" frameborder="0">&nbsp;</iframe>
+      
+    </div>
+
+    
+      
+
+    
+
+    <footer class="article-footer">
+      <a data-url="http://slarke.github.io/2015/02/24/music_2014/" data-id="cj6xyo8l700062o6pok71ju7a" class="article-share-link">
+        <i class="fa fa-share"></i> Share
+      </a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Chevelle/">Chevelle</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Death-From-Above-1979/">Death From Above 1979</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Marmozets/">Marmozets</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Сaribou/">Сaribou</a></li></ul>
+
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-noise" class="article article-type-post" itemscope itemprop="blogPost">
+
+  <header class="article-header">
+    
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/01/16/noise/">Noise</a>
+    </h1>
+  
+
+
+  </header>
+
+  <div class="article-meta">
+    <div class="article-datetime">
+  <a href="/2015/01/16/noise/" class="article-date"><time datetime="2015-01-15T21:00:00.000Z" itemprop="datePublished">2015-01-16</time></a>
+</div>
+
+    
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/url/">url</a>
+  </div>
+
+
+  </div>
+  <div class="article-inner">
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="http://www.noisli.com" target="_blank" rel="external">noisli.com</a></p>
+<p><a href="http://mynoise.net" target="_blank" rel="external">mynoise.net</a></p>
+<p><a href="http://asoftmurmur.com" target="_blank" rel="external">asoftmurmur.com</a></p>
+<p><a href="https://coffitivity.com" target="_blank" rel="external">coffitivity.com</a></p>
+<p><a href="http://augustambience.com" target="_blank" rel="external">augustambience.com</a></p>
+<p><a href="http://rainycafe.com" target="_blank" rel="external">rainycafe.com</a></p>
+<p><a href="http://jazzandrain.com" target="_blank" rel="external">jazzandrain.com</a></p>
+<p><a href="http://soundrown.com" target="_blank" rel="external">soundrown.com</a></p>
+<p><a href="http://raining.fm" target="_blank" rel="external">raining.fm</a></p>
+<p><a href="http://www.calmsound.com" target="_blank" rel="external">calmsound.com</a></p>
+<p><a href="http://rainfor.me" target="_blank" rel="external">rainfor.me</a></p>
+<p><a href="http://moodturn.com" target="_blank" rel="external">moodturn.com</a></p>
+<p><a href="http://www.calm.com" target="_blank" rel="external">calm.com</a></p>
+<p><a href="http://www.rainymood.com" target="_blank" rel="external">rainymood.com</a></p>
+<p><a href="http://snowymood.demouth.net" target="_blank" rel="external">snowymood.demouth.net</a></p>
+
+      
+    </div>
+
+    
+      
+
+    
+
+    <footer class="article-footer">
+      <a data-url="http://slarke.github.io/2015/01/16/noise/" data-id="cj6xym7km0000e06pzwqr9w2h" class="article-share-link">
+        <i class="fa fa-share"></i> Share
+      </a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/noise/">noise</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/urls/">urls</a></li></ul>
+
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-rpi-cam" class="article article-type-post" itemscope itemprop="blogPost">
+
+  <header class="article-header">
+    
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/11/07/rpi-cam/">Raspberry pi camera</a>
+    </h1>
+  
+
+
+  </header>
+
+  <div class="article-meta">
+    <div class="article-datetime">
+  <a href="/2014/11/07/rpi-cam/" class="article-date"><time datetime="2014-11-06T21:00:00.000Z" itemprop="datePublished">2014-11-07</time></a>
+</div>
+
+    
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/diy/">diy</a>
+  </div>
+
+
+  </div>
+  <div class="article-inner">
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <pre><code>sudo apt-get update
+sudo apt-get dist-upgrade
+sudo rpi-update
+sudo reboot
+</code></pre><h1 id="Скачиваем-mjpeg-streamer-и-компилируем"><a href="#Скачиваем-mjpeg-streamer-и-компилируем" class="headerlink" title="Скачиваем mjpeg-streamer и компилируем"></a>Скачиваем mjpeg-streamer и компилируем</h1><pre><code>sudo apt-get install cmake
+git clone https://github.com/silvanmelchior/userland.git
+cd userland
+./buildme
+
+sudo ln -s /opt/vc/bin/raspimjpeg /usr/bin/raspimjpeg
+</code></pre><p>или скачиваем готовый </p>
+<pre><code>wget https://www.dropbox.com/s/3f47cyh902l4dto/raspimjpeg
+chmod a+x raspimjpeg
+</code></pre><h1 id="Устанавливаем-RPi-Cam-Web-Interface"><a href="#Устанавливаем-RPi-Cam-Web-Interface" class="headerlink" title="Устанавливаем RPi Cam  Web Interface"></a>Устанавливаем RPi Cam  Web Interface</h1><pre><code>git clone https://github.com/silvanmelchior/RPi_Cam_Web_Interface.git
+cd RPi_Cam_Web_Interface
+chmod u+x RPi_Cam_Web_Interface_Installer.sh
+./RPi_Cam_Web_Interface_Installer.sh install
+</code></pre><p>Проверяем работу RPi Cam Web Interface <em><a href="http://ip-adress-raspberry-pi" target="_blank" rel="external">http://ip-adress-raspberry-pi</a></em></p>
+<p>более подробное описание</p>
+<p><a href="">http://elinux.org/RPi-Cam-Web-Interface</a></p>
+<p><a href="">http://www.raspberrypi.org/forums/viewtopic.php?f=43&amp;t=63276</a></p>
+<hr>
+<h1 id="Устанавливаем-pi-pan-управление-сервоприводами"><a href="#Устанавливаем-pi-pan-управление-сервоприводами" class="headerlink" title="Устанавливаем pi-pan управление сервоприводами"></a>Устанавливаем pi-pan управление сервоприводами</h1><pre><code>mkdir pi-pan
+cd pi-pan
+wget http://openelectrons.com/files/documents/pi-pan.tar.gz`
+</code></pre><p>Извлекаем следующей командой:</p>
+<pre><code>cd pi-pan
+tar -zxvf pi-pan.tar.gz`
+</code></pre><p>Pi-Pan использует ServoBlaster; устанавливаем следующими скриптами:</p>
+<pre><code>cd pi-pan
+sudo ./install-pi-pan.bash
+sudo ./install-pilight.bash
+</code></pre><p>проверяем работоспособность</p>
+<pre><code>python ./neutral_servo.py
+</code></pre><p>Создаем файл “pipan_pipe.py”</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#!/usr/bin/env python</span></div><div class="line"> </div><div class="line"><span class="keyword">import</span> time</div><div class="line"><span class="keyword">import</span> os, sys</div><div class="line"><span class="keyword">import</span> pipan</div><div class="line"><span class="keyword">import</span> pilight</div><div class="line"> </div><div class="line">p_servo = pipan.PiPan()</div><div class="line">p_led = pilight.PILIGHT()</div><div class="line"> </div><div class="line"><span class="keyword">while</span> <span class="keyword">True</span>:</div><div class="line">  pipein = open(<span class="string">"/var/www/FIFO_pipan"</span>, <span class="string">'r'</span>)</div><div class="line">  line = pipein.readline()</div><div class="line">  line_array = line.split(<span class="string">' '</span>)</div><div class="line">  <span class="keyword">if</span> line_array[<span class="number">0</span>] == <span class="string">"servo"</span>:</div><div class="line">    p_servo.do_pan(int(line_array[<span class="number">1</span>]))</div><div class="line">    p_servo.do_tilt(int(line_array[<span class="number">2</span>]))</div><div class="line">  <span class="keyword">elif</span> line_array[<span class="number">0</span>] == <span class="string">"led"</span>:</div><div class="line">    p_led.createPiLight(int(line_array[<span class="number">1</span>]),int(line_array[<span class="number">2</span>]),int(line_array[<span class="number">3</span>]))</div><div class="line">  pipein.close()</div></pre></td></tr></table></figure>
+<pre><code>cd /var/www/
+sudo mknod FIFO_pipan p
+sudo chmod 666 FIFO_pipan
+</code></pre><p>Редактируем “/etc/rc.local”: вставляем код </p>
+<pre><code>python /home/pi/pipan_pipe.py &amp;
+</code></pre><p>после строчки содержащей raspimjpeg (директорию следует поменять на ту, где находится pipan_pipe.py) :</p>
+<p>Создаем файл “pipan.php” в “/var/www”:</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line"> </div><div class="line">  <span class="comment">//</span></div><div class="line">  <span class="comment">// settings</span></div><div class="line">  <span class="comment">//</span></div><div class="line">  $min_pan = <span class="number">60</span>;</div><div class="line">  $max_pan = <span class="number">190</span>;</div><div class="line">  $min_tilt = <span class="number">120</span>;</div><div class="line">  $max_tilt = <span class="number">220</span>;</div><div class="line"> </div><div class="line"> </div><div class="line">  <span class="comment">//</span></div><div class="line">  <span class="comment">// code</span></div><div class="line">  <span class="comment">//</span></div><div class="line">  <span class="keyword">if</span>(<span class="keyword">isset</span>($_GET[<span class="string">"pan"</span>])) &#123;</div><div class="line">    <span class="keyword">if</span>(is_numeric($_GET[<span class="string">"pan"</span>])) &#123;</div><div class="line">      <span class="keyword">if</span>(is_numeric($_GET[<span class="string">"tilt"</span>])) &#123;</div><div class="line">        $pan = round($min_pan + (($max_pan - $min_pan)/<span class="number">200</span>*$_GET[<span class="string">"pan"</span>]));</div><div class="line">        $tilt = round($min_tilt + (($max_tilt - $min_tilt)/<span class="number">200</span>*$_GET[<span class="string">"tilt"</span>]));</div><div class="line">        $pipe = fopen(<span class="string">"FIFO_pipan"</span>,<span class="string">"w"</span>);</div><div class="line">        fwrite($pipe, <span class="string">"servo $pan $tilt "</span>);</div><div class="line">        fclose($pipe);</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line"> </div><div class="line">  <span class="keyword">if</span>(<span class="keyword">isset</span>($_GET[<span class="string">"red"</span>])) &#123;</div><div class="line">    <span class="keyword">if</span>(is_numeric($_GET[<span class="string">"red"</span>])) &#123;</div><div class="line">      <span class="keyword">if</span>(is_numeric($_GET[<span class="string">"green"</span>])) &#123;</div><div class="line">        <span class="keyword">if</span>(is_numeric($_GET[<span class="string">"blue"</span>])) &#123;</div><div class="line">          $pipe = fopen(<span class="string">"FIFO_pipan"</span>,<span class="string">"w"</span>);</div><div class="line">          fwrite($pipe, <span class="string">"led "</span> . $_GET[<span class="string">"red"</span>] . <span class="string">" "</span> . $_GET[<span class="string">"green"</span>] . <span class="string">" "</span> . $_GET[<span class="string">"blue"</span>] . <span class="string">" "</span>);</div><div class="line">          fclose($pipe);</div><div class="line">        &#125;</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line"> </div><div class="line"><span class="meta">?&gt;</span></div></pre></td></tr></table></figure>
+<p>Создаем файл “pipan.js” to “/var/www”</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> pan = <span class="number">100</span>;</div><div class="line"><span class="keyword">var</span> tilt = <span class="number">100</span>;</div><div class="line"><span class="keyword">var</span> pan_bak = <span class="number">100</span>;</div><div class="line"><span class="keyword">var</span> tilt_bak = <span class="number">100</span>;</div><div class="line"><span class="keyword">var</span> pan_start;</div><div class="line"><span class="keyword">var</span> tilt_start;</div><div class="line"><span class="keyword">var</span> touch = <span class="literal">false</span>;</div><div class="line"><span class="keyword">var</span> led_stat = <span class="literal">false</span>;</div><div class="line"><span class="keyword">var</span> ajax_pipan;</div><div class="line"><span class="keyword">var</span> pipan_mouse_x;</div><div class="line"><span class="keyword">var</span> pipan_mouse_y;</div><div class="line"> </div><div class="line"><span class="built_in">document</span>.onkeypress = pipan_onkeypress;</div><div class="line"> </div><div class="line"><span class="keyword">if</span>(<span class="built_in">window</span>.XMLHttpRequest) &#123;</div><div class="line">  ajax_pipan = <span class="keyword">new</span> XMLHttpRequest();</div><div class="line">&#125;</div><div class="line"><span class="keyword">else</span> &#123;</div><div class="line">  ajax_pipan = <span class="keyword">new</span> ActiveXObject(<span class="string">"Microsoft.XMLHTTP"</span>);</div><div class="line">&#125;</div><div class="line">ajax_pipan.onreadystatechange = ajax_pipan_done;</div><div class="line"> </div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">ajax_pipan_done</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">if</span>(ajax_pipan.readyState == <span class="number">4</span>) &#123;</div><div class="line">    <span class="keyword">if</span>(touch) &#123;</div><div class="line">      <span class="keyword">if</span>((pan_bak != pan) || (tilt_bak != tilt)) &#123;</div><div class="line">        ajax_pipan_start();</div><div class="line">      &#125;</div><div class="line">      <span class="keyword">else</span> &#123;</div><div class="line">        setTimeout(<span class="string">"ajax_pipan_done()"</span>, <span class="number">100</span>);</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"> </div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">ajax_pipan_start</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  ajax_pipan.open(<span class="string">"GET"</span>,<span class="string">"pipan.php?pan="</span> + pan + <span class="string">"&amp;tilt="</span> + tilt, <span class="literal">true</span>);</div><div class="line">  ajax_pipan.send();</div><div class="line">  pan_bak = pan;</div><div class="line">  tilt_bak = tilt;</div><div class="line">&#125;</div><div class="line"> </div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">servo_left</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">if</span>(pan &lt;= <span class="number">190</span>) pan += <span class="number">10</span>;</div><div class="line">  ajax_pipan_start();</div><div class="line">&#125;</div><div class="line"> </div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">servo_right</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">if</span>(pan &gt;= <span class="number">10</span>) pan -= <span class="number">10</span>;</div><div class="line">  ajax_pipan_start();</div><div class="line">&#125;</div><div class="line"> </div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">servo_up</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">if</span>(tilt &gt;= <span class="number">10</span>) tilt -= <span class="number">10</span>;</div><div class="line">  ajax_pipan_start();</div><div class="line">&#125;</div><div class="line"> </div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">servo_down</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">if</span>(tilt &lt;= <span class="number">190</span>) tilt += <span class="number">10</span>;</div><div class="line">  ajax_pipan_start();</div><div class="line">&#125;</div><div class="line"> </div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">led_switch</span> (<span class="params"></span>) </span>&#123;</div><div class="line"> </div><div class="line">  <span class="keyword">if</span>(!led_stat) &#123;</div><div class="line">    led_stat = <span class="literal">true</span>;</div><div class="line">    ajax_pipan.open(<span class="string">"GET"</span>,<span class="string">"pipan.php?red="</span> + <span class="built_in">document</span>.getElementById(<span class="string">"pilight_r"</span>).value + <span class="string">"&amp;green="</span> + <span class="built_in">document</span>.getElementById(<span class="string">"pilight_g"</span>).value + <span class="string">"&amp;blue="</span> + <span class="built_in">document</span>.getElementById(<span class="string">"pilight_b"</span>).value, <span class="literal">true</span>);</div><div class="line">    ajax_pipan.send();</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">else</span> &#123;</div><div class="line">    led_stat = <span class="literal">false</span>;</div><div class="line">    ajax_pipan.open(<span class="string">"GET"</span>,<span class="string">"pipan.php?red=0&amp;green=0&amp;blue=0"</span>, <span class="literal">true</span>);</div><div class="line">    ajax_pipan.send();</div><div class="line">  &#125;</div><div class="line"> </div><div class="line">&#125;</div><div class="line"> </div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">pipan_onkeypress</span> (<span class="params">e</span>) </span>&#123;</div><div class="line"> </div><div class="line">  <span class="keyword">if</span>(e.keyCode == <span class="number">97</span>) servo_left();</div><div class="line">  <span class="keyword">else</span> <span class="keyword">if</span>(e.keyCode == <span class="number">119</span>) servo_up();</div><div class="line">  <span class="keyword">else</span> <span class="keyword">if</span>(e.keyCode == <span class="number">100</span>) servo_right();</div><div class="line">  <span class="keyword">else</span> <span class="keyword">if</span>(e.keyCode == <span class="number">115</span>) servo_down();</div><div class="line">  <span class="keyword">else</span> <span class="keyword">if</span>(e.keyCode == <span class="number">102</span>) led_switch();</div><div class="line"> </div><div class="line">&#125;</div><div class="line"> </div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">pipan_start</span> (<span class="params"></span>) </span>&#123;</div><div class="line"> </div><div class="line">  pipan_mouse_x = <span class="literal">null</span>;</div><div class="line">  pipan_mouse_y = <span class="literal">null</span>;</div><div class="line">  pan_start = pan;</div><div class="line">  tilt_start = tilt;</div><div class="line">  <span class="built_in">document</span>.body.addEventListener(<span class="string">'touchmove'</span>, pipan_move, <span class="literal">false</span>)</div><div class="line">  <span class="built_in">document</span>.body.addEventListener(<span class="string">'touchend'</span>, pipan_stop, <span class="literal">false</span>)</div><div class="line">  touch = <span class="literal">true</span>;</div><div class="line">  ajax_pipan_start();</div><div class="line"> </div><div class="line">&#125;</div><div class="line"> </div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">pipan_move</span> (<span class="params">e</span>) </span>&#123;</div><div class="line"> </div><div class="line">  <span class="keyword">var</span> ev = e || <span class="built_in">window</span>.event;</div><div class="line"> </div><div class="line">  <span class="keyword">if</span>(pipan_mouse_x == <span class="literal">null</span>) &#123;</div><div class="line">    pipan_mouse_x = e.changedTouches[<span class="number">0</span>].pageX;</div><div class="line">    pipan_mouse_y = e.changedTouches[<span class="number">0</span>].pageY;</div><div class="line">  &#125;</div><div class="line">  mouse_x = e.changedTouches[<span class="number">0</span>].pageX;</div><div class="line">  mouse_y = e.changedTouches[<span class="number">0</span>].pageY;</div><div class="line">  e.preventDefault()</div><div class="line"> </div><div class="line">  <span class="keyword">var</span> pan_temp = pan_start + <span class="built_in">Math</span>.round((mouse_x-pipan_mouse_x)/<span class="number">5</span>);</div><div class="line">  <span class="keyword">var</span> tilt_temp = tilt_start + <span class="built_in">Math</span>.round((pipan_mouse_y-mouse_y)/<span class="number">5</span>);</div><div class="line">  <span class="keyword">if</span>(pan_temp &gt; <span class="number">200</span>) pan_temp = <span class="number">200</span>;</div><div class="line">  <span class="keyword">if</span>(pan_temp &lt; <span class="number">0</span>) pan_temp = <span class="number">0</span>;</div><div class="line">  <span class="keyword">if</span>(tilt_temp &gt; <span class="number">200</span>) tilt_temp = <span class="number">200</span>;</div><div class="line">  <span class="keyword">if</span>(tilt_temp &lt; <span class="number">0</span>) tilt_temp = <span class="number">0</span>;</div><div class="line"> </div><div class="line">  pan = pan_temp;</div><div class="line">  tilt = tilt_temp;</div><div class="line"> </div><div class="line">&#125;</div><div class="line"> </div><div class="line"> </div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">pipan_stop</span> (<span class="params"></span>) </span>&#123;</div><div class="line"> </div><div class="line">  <span class="built_in">document</span>.body.removeEventListener(<span class="string">'touchmove'</span>, pipan_move, <span class="literal">false</span>)</div><div class="line">  <span class="built_in">document</span>.body.removeEventListener(<span class="string">'touchend'</span>, pipan_stop, <span class="literal">false</span>)</div><div class="line">  touch = <span class="literal">false</span>;</div><div class="line"> </div><div class="line">  <span class="keyword">if</span>(pipan_mouse_x == <span class="literal">null</span>) led_switch();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Добавляем данный код </p>
+<pre><code>&lt;script src=&quot;pipan.js&quot;&gt;&lt;/script&gt;
+</code></pre><p>ниже этой строчки </p>
+<pre><code>&quot;&lt;script src=&quot;script.js&quot;&gt;&lt;/script&gt;&quot; 
+</code></pre><p>в файл “index.php” </p>
+<p>Добавляем код в файл “index.php” кнопки вращения сервоприводов</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;br&gt;</div><div class="line">&lt;input type=&quot;button&quot; value=&quot;up&quot; onclick=&quot;servo_up();&quot;&gt;&lt;br&gt;</div><div class="line">&lt;input type=&quot;button&quot; value=&quot;left&quot; onclick=&quot;servo_left();&quot;&gt;</div><div class="line">&lt;input type=&quot;button&quot; value=&quot;down&quot; onclick=&quot;servo_down();&quot;&gt;</div><div class="line">&lt;input type=&quot;button&quot; value=&quot;right&quot; onclick=&quot;servo_right();&quot;&gt;</div></pre></td></tr></table></figure>
+<p>кнопки для регулирования освещения</p>
+<pre><code>&lt;tr&gt;
+  &lt;td&gt;Pi-Light:&lt;/td&gt;
+  &lt;td&gt;
+    R: &lt;input type=&quot;text&quot; size=4 id=&quot;pilight_r&quot; value=&quot;255&quot;&gt;
+    G: &lt;input type=&quot;text&quot; size=4 id=&quot;pilight_g&quot; value=&quot;255&quot;&gt;
+    B: &lt;input type=&quot;text&quot; size=4 id=&quot;pilight_b&quot; value=&quot;255&quot;&gt;&lt;br&gt;
+    &lt;input type=&quot;button&quot; value=&quot;ON/OFF&quot; onclick=&quot;led_switch();&quot;&gt;
+  &lt;/td&gt;
+&lt;/tr&gt;
+</code></pre><iframe width="560" height="315" src="https://www.youtube.com/embed/ozMebPpSluY" frameborder="0">&nbsp;</iframe>
+      
+    </div>
+
+    
+      
+
+    
+
+    <footer class="article-footer">
+      <a data-url="http://slarke.github.io/2014/11/07/rpi-cam/" data-id="cj6xyyijz0001os6p065e3xl1" class="article-share-link">
+        <i class="fa fa-share"></i> Share
+      </a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/raspberry/">raspberry</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/raspbian/">raspbian</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/urls/">urls</a></li></ul>
+
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-book" class="article article-type-post" itemscope itemprop="blogPost">
+
+  <header class="article-header">
+    
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/11/03/book/">Литература для гос экзамена</a>
+    </h1>
+  
+
+
+  </header>
+
+  <div class="article-meta">
+    <div class="article-datetime">
+  <a href="/2014/11/03/book/" class="article-date"><time datetime="2014-11-02T21:00:00.000Z" itemprop="datePublished">2014-11-03</time></a>
+</div>
+
+    
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/vgavt/">vgavt</a>
+  </div>
+
+
+  </div>
+  <div class="article-inner">
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Почти всё к госам</p>
+<ul>
+<li><a href="https://mega.co.nz/#F!Y0JVVaxC!xfxUXz6lN8chMAC01onVMg" target="_blank" rel="external">Скачать c mega.co.nz</a></li>
+</ul>
+<p>Ресурсы с книгами</p>
+<ul>
+<li><a href="http://twirpx.com" target="_blank" rel="external">twirpx.com</a></li>
+<li><a href="http://flibusta.net" target="_blank" rel="external">flibusta.net</a></li>
+<li><a href="https://lib.rus.ec" target="_blank" rel="external">lib.rus.ec</a></li>
+<li><a href="http://mirknig.com" target="_blank" rel="external">mirknig.com</a></li>
+<li><a href="http://www.rfbr.ru/rffi/ru/library" target="_blank" rel="external">rfbr.ru</a></li>
+<li><a href="http://www.plib.ru/" target="_blank" rel="external">plib.ru</a></li>
+</ul>
+
+      
+    </div>
+
+    
+      
+
+    
+
+    <footer class="article-footer">
+      <a data-url="http://slarke.github.io/2014/11/03/book/" data-id="cj6xyyijo0000os6pjaq9luva" class="article-share-link">
+        <i class="fa fa-share"></i> Share
+      </a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/books/">books</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/urls/">urls</a></li></ul>
+
 
     </footer>
   </div>
@@ -176,6 +1031,10 @@
 
   
 
+
+  <div id="page-nav">
+    <nav><ul class="pagination"><li class="disabled"><span class="page-prev"><i class="fa fa-chevron-left"></i> Prev</a></li><li class="active"><span class="page-number">1</span></li><li><a class="page-number" href="/page/2/">2</a></li><li><a class="page-number" href="/page/3/">3</a></li><li><a class="page-next" rel="next" href="/page/2/">Next <i class="fa fa-chevron-right"></i></a></li></ul></nav>
+  </div>
 
 
 
@@ -190,17 +1049,34 @@
 
 
   
+  <div class="sidebar-module">
+    <h4>Categories</h4>
+    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/DIY/">DIY</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/diy/">diy</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/help/">help</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/manual/">manual</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/music/">music</a><span class="sidebar-module-list-count">5</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/offline/">offline</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/picture/">picture</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/url/">url</a><span class="sidebar-module-list-count">15</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/vgavt/">vgavt</a><span class="sidebar-module-list-count">1</span></li></ul>
+  </div>
+
 
 
   
+  <div class="sidebar-module">
+    <h4>Tags</h4>
+    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/2-Faced-Funks/">2 Faced Funks</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/ALGORITHM/">ALGORITHM</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Above-Beyond/">Above & Beyond</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Adagio-For-Strings/">Adagio For Strings</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Alice-In-Chains/">Alice In Chains</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Andrew-Bayer/">Andrew Bayer</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Arcade-Fire/">Arcade Fire</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Asking-Alexandria/">Asking Alexandria</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Atoms-For-Peace/">Atoms For Peace</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Betoko/">Betoko</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Chevelle/">Chevelle</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Crosses/">Crosses</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Cynic/">Cynic</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/DIY/">DIY</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Death-From-Above-1979/">Death From Above 1979</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Dyro/">Dyro</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Exxasens/">Exxasens</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/I-Am-Waiting-For-You-Last-Summer/">I Am Waiting For You Last Summer</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Julian-Calor/">Julian Calor</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/KeePass/">KeePass</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Mantar/">Mantar</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Marmozets/">Marmozets</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Nao/">Nao</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Samuel-Barber/">Samuel Barber</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Sysinternals/">Sysinternals</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/The-dillinger-escape-plan/">The dillinger escape plan</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/TrayIt/">TrayIt</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/TrueCrypt/">TrueCrypt</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/anonymity/">anonymity</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/antivirus/">antivirus</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/atx/">atx</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/bitdefender/">bitdefender</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/books/">books</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/clouds/">clouds</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/crypt/">crypt</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/dropsydies/">dropsydies</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/films/">films</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/fuck/">fuck</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/ipv6-windows/">ipv6, windows</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/jetbytes/">jetbytes</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/justbeamit/">justbeamit</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/kaspersky/">kaspersky</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/manual/">manual</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/noise/">noise</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/p2p/">p2p</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/panda/">panda</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/picture/">picture</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/pipebytes/">pipebytes</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/raspberry/">raspberry</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/raspbian/">raspbian</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/search/">search</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/security/">security</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/share/">share</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/spying/">spying</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/symantec/">symantec</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/torrent/">torrent</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/trackers/">trackers</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/unlocker/">unlocker</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/urls/">urls</a><span class="sidebar-module-list-count">18</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/virusinfo/">virusinfo</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/virustotal/">virustotal</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/vpn/">vpn</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/windows/">windows</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Сaribou/">Сaribou</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/бп/">бп</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/передача/">передача</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/шифрование/">шифрование</a><span class="sidebar-module-list-count">1</span></li></ul>
+  </div>
+
 
 
   
+  <div class="sidebar-module">
+    <h4>Tag Cloud</h4>
+    <p class="tagcloud">
+      <a href="/tags/2-Faced-Funks/" style="font-size: 10px;">2 Faced Funks</a> <a href="/tags/ALGORITHM/" style="font-size: 10px;">ALGORITHM</a> <a href="/tags/Above-Beyond/" style="font-size: 10px;">Above & Beyond</a> <a href="/tags/Adagio-For-Strings/" style="font-size: 10px;">Adagio For Strings</a> <a href="/tags/Alice-In-Chains/" style="font-size: 10px;">Alice In Chains</a> <a href="/tags/Andrew-Bayer/" style="font-size: 10px;">Andrew Bayer</a> <a href="/tags/Arcade-Fire/" style="font-size: 10px;">Arcade Fire</a> <a href="/tags/Asking-Alexandria/" style="font-size: 10px;">Asking Alexandria</a> <a href="/tags/Atoms-For-Peace/" style="font-size: 10px;">Atoms For Peace</a> <a href="/tags/Betoko/" style="font-size: 10px;">Betoko</a> <a href="/tags/Chevelle/" style="font-size: 10px;">Chevelle</a> <a href="/tags/Crosses/" style="font-size: 10px;">Crosses</a> <a href="/tags/Cynic/" style="font-size: 10px;">Cynic</a> <a href="/tags/DIY/" style="font-size: 10px;">DIY</a> <a href="/tags/Death-From-Above-1979/" style="font-size: 10px;">Death From Above 1979</a> <a href="/tags/Dyro/" style="font-size: 10px;">Dyro</a> <a href="/tags/Exxasens/" style="font-size: 10px;">Exxasens</a> <a href="/tags/I-Am-Waiting-For-You-Last-Summer/" style="font-size: 10px;">I Am Waiting For You Last Summer</a> <a href="/tags/Julian-Calor/" style="font-size: 10px;">Julian Calor</a> <a href="/tags/KeePass/" style="font-size: 10px;">KeePass</a> <a href="/tags/Mantar/" style="font-size: 10px;">Mantar</a> <a href="/tags/Marmozets/" style="font-size: 10px;">Marmozets</a> <a href="/tags/Nao/" style="font-size: 10px;">Nao</a> <a href="/tags/Samuel-Barber/" style="font-size: 10px;">Samuel Barber</a> <a href="/tags/Sysinternals/" style="font-size: 10px;">Sysinternals</a> <a href="/tags/The-dillinger-escape-plan/" style="font-size: 10px;">The dillinger escape plan</a> <a href="/tags/TrayIt/" style="font-size: 10px;">TrayIt</a> <a href="/tags/TrueCrypt/" style="font-size: 10px;">TrueCrypt</a> <a href="/tags/anonymity/" style="font-size: 10px;">anonymity</a> <a href="/tags/antivirus/" style="font-size: 10px;">antivirus</a> <a href="/tags/atx/" style="font-size: 10px;">atx</a> <a href="/tags/bitdefender/" style="font-size: 10px;">bitdefender</a> <a href="/tags/books/" style="font-size: 10px;">books</a> <a href="/tags/clouds/" style="font-size: 15px;">clouds</a> <a href="/tags/crypt/" style="font-size: 10px;">crypt</a> <a href="/tags/dropsydies/" style="font-size: 10px;">dropsydies</a> <a href="/tags/films/" style="font-size: 10px;">films</a> <a href="/tags/fuck/" style="font-size: 10px;">fuck</a> <a href="/tags/ipv6-windows/" style="font-size: 10px;">ipv6, windows</a> <a href="/tags/jetbytes/" style="font-size: 10px;">jetbytes</a> <a href="/tags/justbeamit/" style="font-size: 10px;">justbeamit</a> <a href="/tags/kaspersky/" style="font-size: 10px;">kaspersky</a> <a href="/tags/manual/" style="font-size: 15px;">manual</a> <a href="/tags/noise/" style="font-size: 10px;">noise</a> <a href="/tags/p2p/" style="font-size: 10px;">p2p</a> <a href="/tags/panda/" style="font-size: 10px;">panda</a> <a href="/tags/picture/" style="font-size: 10px;">picture</a> <a href="/tags/pipebytes/" style="font-size: 10px;">pipebytes</a> <a href="/tags/raspberry/" style="font-size: 10px;">raspberry</a> <a href="/tags/raspbian/" style="font-size: 10px;">raspbian</a> <a href="/tags/search/" style="font-size: 10px;">search</a> <a href="/tags/security/" style="font-size: 10px;">security</a> <a href="/tags/share/" style="font-size: 10px;">share</a> <a href="/tags/spying/" style="font-size: 10px;">spying</a> <a href="/tags/symantec/" style="font-size: 10px;">symantec</a> <a href="/tags/torrent/" style="font-size: 15px;">torrent</a> <a href="/tags/trackers/" style="font-size: 10px;">trackers</a> <a href="/tags/unlocker/" style="font-size: 10px;">unlocker</a> <a href="/tags/urls/" style="font-size: 20px;">urls</a> <a href="/tags/virusinfo/" style="font-size: 10px;">virusinfo</a> <a href="/tags/virustotal/" style="font-size: 10px;">virustotal</a> <a href="/tags/vpn/" style="font-size: 10px;">vpn</a> <a href="/tags/windows/" style="font-size: 10px;">windows</a> <a href="/tags/Сaribou/" style="font-size: 10px;">Сaribou</a> <a href="/tags/бп/" style="font-size: 10px;">бп</a> <a href="/tags/передача/" style="font-size: 10px;">передача</a> <a href="/tags/шифрование/" style="font-size: 10px;">шифрование</a>
+    </p>
+  </div>
+
 
   
   <div class="sidebar-module">
     <h4>Archives</h4>
-    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/08/">August 2017</a><span class="sidebar-module-list-count">2</span></li></ul>
+    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/08/">August 2017</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2015/12/">December 2015</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2015/10/">October 2015</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2015/09/">September 2015</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2015/04/">April 2015</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2015/02/">February 2015</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2015/01/">January 2015</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2014/11/">November 2014</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2014/10/">October 2014</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2014/08/">August 2014</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2014/03/">March 2014</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2014/02/">February 2014</a><span class="sidebar-module-list-count">13</span></li></ul>
   </div>
 
 
@@ -211,11 +1087,23 @@
     <ul class="sidebar-module-list">
       
         <li>
-          <a href="/2017/08/29/first-post/">first-post</a>
+          <a href="/2017/08/29/army/">first-post</a>
         </li>
       
         <li>
-          <a href="/2017/08/20/My-New-Post/">My New Post</a>
+          <a href="/2015/12/21/stream/">Stream rtmp</a>
+        </li>
+      
+        <li>
+          <a href="/2015/10/19/utorrent/">Config utorrent</a>
+        </li>
+      
+        <li>
+          <a href="/2015/10/15/deanon/">Deanon</a>
+        </li>
+      
+        <li>
+          <a href="/2015/09/09/windows/">Windows 7, 8, 10</a>
         </li>
       
     </ul>

@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Raspberry pi camera | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="sudo apt-get update sudo apt-get dist-upgrade sudo rpi-update sudo reboot Скачиваем mjpeg-streamer и компилируемsudo apt-get install cmake git clone https://github.com/silvanmelchior/userland.git cd u">
+<meta name="keywords" content="urls,raspberry,raspbian">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Raspberry pi camera">
+<meta property="og:url" content="http://slarke.github.io/2014/11/07/rpi-cam/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="sudo apt-get update sudo apt-get dist-upgrade sudo rpi-update sudo reboot Скачиваем mjpeg-streamer и компилируемsudo apt-get install cmake git clone https://github.com/silvanmelchior/userland.git cd u">
+<meta property="og:updated_time" content="2017-08-29T18:51:50.798Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Raspberry pi camera">
+<meta name="twitter:description" content="sudo apt-get update sudo apt-get dist-upgrade sudo rpi-update sudo reboot Скачиваем mjpeg-streamer и компилируемsudo apt-get install cmake git clone https://github.com/silvanmelchior/userland.git cd u">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="/css/styles.css">
+  
+
+</head>
+
+<body>
+  <nav class="navbar navbar-inverse">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-menu-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="main-menu-navbar">
+      <ul class="nav navbar-nav">
+        
+          <li><a class=""
+                 href="/index.html">Home</a></li>
+        
+          <li><a class=""
+                 href="/archives/">Archives</a></li>
+        
+      </ul>
+
+      <!--
+      <ul class="nav navbar-nav navbar-right">
+        
+          <li><a href="/atom.xml" title="RSS Feed"><i class="fa fa-rss"></i></a></li>
+        
+      </ul>
+      -->
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+  <div class="container">
+    <div class="blog-header">
+  <h1 class="blog-title">Hexo</h1>
+  
+</div>
+
+    <div class="row">
+        <div class="col-sm-8 blog-main">
+          <article id="post-rpi-cam" class="article article-type-post" itemscope itemprop="blogPost">
+
+  <header class="article-header">
+    
+  
+    <h1 class="article-title" itemprop="name">
+      Raspberry pi camera
+    </h1>
+  
+
+
+  </header>
+
+  <div class="article-meta">
+    <div class="article-datetime">
+  <a href="/2014/11/07/rpi-cam/" class="article-date"><time datetime="2014-11-06T21:00:00.000Z" itemprop="datePublished">2014-11-07</time></a>
+</div>
+
+    
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/diy/">diy</a>
+  </div>
+
+
+  </div>
+  <div class="article-inner">
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <pre><code>sudo apt-get update
+sudo apt-get dist-upgrade
+sudo rpi-update
+sudo reboot
+</code></pre><h1 id="Скачиваем-mjpeg-streamer-и-компилируем"><a href="#Скачиваем-mjpeg-streamer-и-компилируем" class="headerlink" title="Скачиваем mjpeg-streamer и компилируем"></a>Скачиваем mjpeg-streamer и компилируем</h1><pre><code>sudo apt-get install cmake
+git clone https://github.com/silvanmelchior/userland.git
+cd userland
+./buildme
+
+sudo ln -s /opt/vc/bin/raspimjpeg /usr/bin/raspimjpeg
+</code></pre><p>или скачиваем готовый </p>
+<pre><code>wget https://www.dropbox.com/s/3f47cyh902l4dto/raspimjpeg
+chmod a+x raspimjpeg
+</code></pre><h1 id="Устанавливаем-RPi-Cam-Web-Interface"><a href="#Устанавливаем-RPi-Cam-Web-Interface" class="headerlink" title="Устанавливаем RPi Cam  Web Interface"></a>Устанавливаем RPi Cam  Web Interface</h1><pre><code>git clone https://github.com/silvanmelchior/RPi_Cam_Web_Interface.git
+cd RPi_Cam_Web_Interface
+chmod u+x RPi_Cam_Web_Interface_Installer.sh
+./RPi_Cam_Web_Interface_Installer.sh install
+</code></pre><p>Проверяем работу RPi Cam Web Interface <em><a href="http://ip-adress-raspberry-pi" target="_blank" rel="external">http://ip-adress-raspberry-pi</a></em></p>
+<p>более подробное описание</p>
+<p><a href="">http://elinux.org/RPi-Cam-Web-Interface</a></p>
+<p><a href="">http://www.raspberrypi.org/forums/viewtopic.php?f=43&amp;t=63276</a></p>
+<hr>
+<h1 id="Устанавливаем-pi-pan-управление-сервоприводами"><a href="#Устанавливаем-pi-pan-управление-сервоприводами" class="headerlink" title="Устанавливаем pi-pan управление сервоприводами"></a>Устанавливаем pi-pan управление сервоприводами</h1><pre><code>mkdir pi-pan
+cd pi-pan
+wget http://openelectrons.com/files/documents/pi-pan.tar.gz`
+</code></pre><p>Извлекаем следующей командой:</p>
+<pre><code>cd pi-pan
+tar -zxvf pi-pan.tar.gz`
+</code></pre><p>Pi-Pan использует ServoBlaster; устанавливаем следующими скриптами:</p>
+<pre><code>cd pi-pan
+sudo ./install-pi-pan.bash
+sudo ./install-pilight.bash
+</code></pre><p>проверяем работоспособность</p>
+<pre><code>python ./neutral_servo.py
+</code></pre><p>Создаем файл “pipan_pipe.py”</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#!/usr/bin/env python</span></div><div class="line"> </div><div class="line"><span class="keyword">import</span> time</div><div class="line"><span class="keyword">import</span> os, sys</div><div class="line"><span class="keyword">import</span> pipan</div><div class="line"><span class="keyword">import</span> pilight</div><div class="line"> </div><div class="line">p_servo = pipan.PiPan()</div><div class="line">p_led = pilight.PILIGHT()</div><div class="line"> </div><div class="line"><span class="keyword">while</span> <span class="keyword">True</span>:</div><div class="line">  pipein = open(<span class="string">"/var/www/FIFO_pipan"</span>, <span class="string">'r'</span>)</div><div class="line">  line = pipein.readline()</div><div class="line">  line_array = line.split(<span class="string">' '</span>)</div><div class="line">  <span class="keyword">if</span> line_array[<span class="number">0</span>] == <span class="string">"servo"</span>:</div><div class="line">    p_servo.do_pan(int(line_array[<span class="number">1</span>]))</div><div class="line">    p_servo.do_tilt(int(line_array[<span class="number">2</span>]))</div><div class="line">  <span class="keyword">elif</span> line_array[<span class="number">0</span>] == <span class="string">"led"</span>:</div><div class="line">    p_led.createPiLight(int(line_array[<span class="number">1</span>]),int(line_array[<span class="number">2</span>]),int(line_array[<span class="number">3</span>]))</div><div class="line">  pipein.close()</div></pre></td></tr></table></figure>
+<pre><code>cd /var/www/
+sudo mknod FIFO_pipan p
+sudo chmod 666 FIFO_pipan
+</code></pre><p>Редактируем “/etc/rc.local”: вставляем код </p>
+<pre><code>python /home/pi/pipan_pipe.py &amp;
+</code></pre><p>после строчки содержащей raspimjpeg (директорию следует поменять на ту, где находится pipan_pipe.py) :</p>
+<p>Создаем файл “pipan.php” в “/var/www”:</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line"> </div><div class="line">  <span class="comment">//</span></div><div class="line">  <span class="comment">// settings</span></div><div class="line">  <span class="comment">//</span></div><div class="line">  $min_pan = <span class="number">60</span>;</div><div class="line">  $max_pan = <span class="number">190</span>;</div><div class="line">  $min_tilt = <span class="number">120</span>;</div><div class="line">  $max_tilt = <span class="number">220</span>;</div><div class="line"> </div><div class="line"> </div><div class="line">  <span class="comment">//</span></div><div class="line">  <span class="comment">// code</span></div><div class="line">  <span class="comment">//</span></div><div class="line">  <span class="keyword">if</span>(<span class="keyword">isset</span>($_GET[<span class="string">"pan"</span>])) &#123;</div><div class="line">    <span class="keyword">if</span>(is_numeric($_GET[<span class="string">"pan"</span>])) &#123;</div><div class="line">      <span class="keyword">if</span>(is_numeric($_GET[<span class="string">"tilt"</span>])) &#123;</div><div class="line">        $pan = round($min_pan + (($max_pan - $min_pan)/<span class="number">200</span>*$_GET[<span class="string">"pan"</span>]));</div><div class="line">        $tilt = round($min_tilt + (($max_tilt - $min_tilt)/<span class="number">200</span>*$_GET[<span class="string">"tilt"</span>]));</div><div class="line">        $pipe = fopen(<span class="string">"FIFO_pipan"</span>,<span class="string">"w"</span>);</div><div class="line">        fwrite($pipe, <span class="string">"servo $pan $tilt "</span>);</div><div class="line">        fclose($pipe);</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line"> </div><div class="line">  <span class="keyword">if</span>(<span class="keyword">isset</span>($_GET[<span class="string">"red"</span>])) &#123;</div><div class="line">    <span class="keyword">if</span>(is_numeric($_GET[<span class="string">"red"</span>])) &#123;</div><div class="line">      <span class="keyword">if</span>(is_numeric($_GET[<span class="string">"green"</span>])) &#123;</div><div class="line">        <span class="keyword">if</span>(is_numeric($_GET[<span class="string">"blue"</span>])) &#123;</div><div class="line">          $pipe = fopen(<span class="string">"FIFO_pipan"</span>,<span class="string">"w"</span>);</div><div class="line">          fwrite($pipe, <span class="string">"led "</span> . $_GET[<span class="string">"red"</span>] . <span class="string">" "</span> . $_GET[<span class="string">"green"</span>] . <span class="string">" "</span> . $_GET[<span class="string">"blue"</span>] . <span class="string">" "</span>);</div><div class="line">          fclose($pipe);</div><div class="line">        &#125;</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line"> </div><div class="line"><span class="meta">?&gt;</span></div></pre></td></tr></table></figure>
+<p>Создаем файл “pipan.js” to “/var/www”</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> pan = <span class="number">100</span>;</div><div class="line"><span class="keyword">var</span> tilt = <span class="number">100</span>;</div><div class="line"><span class="keyword">var</span> pan_bak = <span class="number">100</span>;</div><div class="line"><span class="keyword">var</span> tilt_bak = <span class="number">100</span>;</div><div class="line"><span class="keyword">var</span> pan_start;</div><div class="line"><span class="keyword">var</span> tilt_start;</div><div class="line"><span class="keyword">var</span> touch = <span class="literal">false</span>;</div><div class="line"><span class="keyword">var</span> led_stat = <span class="literal">false</span>;</div><div class="line"><span class="keyword">var</span> ajax_pipan;</div><div class="line"><span class="keyword">var</span> pipan_mouse_x;</div><div class="line"><span class="keyword">var</span> pipan_mouse_y;</div><div class="line"> </div><div class="line"><span class="built_in">document</span>.onkeypress = pipan_onkeypress;</div><div class="line"> </div><div class="line"><span class="keyword">if</span>(<span class="built_in">window</span>.XMLHttpRequest) &#123;</div><div class="line">  ajax_pipan = <span class="keyword">new</span> XMLHttpRequest();</div><div class="line">&#125;</div><div class="line"><span class="keyword">else</span> &#123;</div><div class="line">  ajax_pipan = <span class="keyword">new</span> ActiveXObject(<span class="string">"Microsoft.XMLHTTP"</span>);</div><div class="line">&#125;</div><div class="line">ajax_pipan.onreadystatechange = ajax_pipan_done;</div><div class="line"> </div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">ajax_pipan_done</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">if</span>(ajax_pipan.readyState == <span class="number">4</span>) &#123;</div><div class="line">    <span class="keyword">if</span>(touch) &#123;</div><div class="line">      <span class="keyword">if</span>((pan_bak != pan) || (tilt_bak != tilt)) &#123;</div><div class="line">        ajax_pipan_start();</div><div class="line">      &#125;</div><div class="line">      <span class="keyword">else</span> &#123;</div><div class="line">        setTimeout(<span class="string">"ajax_pipan_done()"</span>, <span class="number">100</span>);</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"> </div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">ajax_pipan_start</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  ajax_pipan.open(<span class="string">"GET"</span>,<span class="string">"pipan.php?pan="</span> + pan + <span class="string">"&amp;tilt="</span> + tilt, <span class="literal">true</span>);</div><div class="line">  ajax_pipan.send();</div><div class="line">  pan_bak = pan;</div><div class="line">  tilt_bak = tilt;</div><div class="line">&#125;</div><div class="line"> </div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">servo_left</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">if</span>(pan &lt;= <span class="number">190</span>) pan += <span class="number">10</span>;</div><div class="line">  ajax_pipan_start();</div><div class="line">&#125;</div><div class="line"> </div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">servo_right</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">if</span>(pan &gt;= <span class="number">10</span>) pan -= <span class="number">10</span>;</div><div class="line">  ajax_pipan_start();</div><div class="line">&#125;</div><div class="line"> </div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">servo_up</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">if</span>(tilt &gt;= <span class="number">10</span>) tilt -= <span class="number">10</span>;</div><div class="line">  ajax_pipan_start();</div><div class="line">&#125;</div><div class="line"> </div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">servo_down</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">if</span>(tilt &lt;= <span class="number">190</span>) tilt += <span class="number">10</span>;</div><div class="line">  ajax_pipan_start();</div><div class="line">&#125;</div><div class="line"> </div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">led_switch</span> (<span class="params"></span>) </span>&#123;</div><div class="line"> </div><div class="line">  <span class="keyword">if</span>(!led_stat) &#123;</div><div class="line">    led_stat = <span class="literal">true</span>;</div><div class="line">    ajax_pipan.open(<span class="string">"GET"</span>,<span class="string">"pipan.php?red="</span> + <span class="built_in">document</span>.getElementById(<span class="string">"pilight_r"</span>).value + <span class="string">"&amp;green="</span> + <span class="built_in">document</span>.getElementById(<span class="string">"pilight_g"</span>).value + <span class="string">"&amp;blue="</span> + <span class="built_in">document</span>.getElementById(<span class="string">"pilight_b"</span>).value, <span class="literal">true</span>);</div><div class="line">    ajax_pipan.send();</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">else</span> &#123;</div><div class="line">    led_stat = <span class="literal">false</span>;</div><div class="line">    ajax_pipan.open(<span class="string">"GET"</span>,<span class="string">"pipan.php?red=0&amp;green=0&amp;blue=0"</span>, <span class="literal">true</span>);</div><div class="line">    ajax_pipan.send();</div><div class="line">  &#125;</div><div class="line"> </div><div class="line">&#125;</div><div class="line"> </div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">pipan_onkeypress</span> (<span class="params">e</span>) </span>&#123;</div><div class="line"> </div><div class="line">  <span class="keyword">if</span>(e.keyCode == <span class="number">97</span>) servo_left();</div><div class="line">  <span class="keyword">else</span> <span class="keyword">if</span>(e.keyCode == <span class="number">119</span>) servo_up();</div><div class="line">  <span class="keyword">else</span> <span class="keyword">if</span>(e.keyCode == <span class="number">100</span>) servo_right();</div><div class="line">  <span class="keyword">else</span> <span class="keyword">if</span>(e.keyCode == <span class="number">115</span>) servo_down();</div><div class="line">  <span class="keyword">else</span> <span class="keyword">if</span>(e.keyCode == <span class="number">102</span>) led_switch();</div><div class="line"> </div><div class="line">&#125;</div><div class="line"> </div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">pipan_start</span> (<span class="params"></span>) </span>&#123;</div><div class="line"> </div><div class="line">  pipan_mouse_x = <span class="literal">null</span>;</div><div class="line">  pipan_mouse_y = <span class="literal">null</span>;</div><div class="line">  pan_start = pan;</div><div class="line">  tilt_start = tilt;</div><div class="line">  <span class="built_in">document</span>.body.addEventListener(<span class="string">'touchmove'</span>, pipan_move, <span class="literal">false</span>)</div><div class="line">  <span class="built_in">document</span>.body.addEventListener(<span class="string">'touchend'</span>, pipan_stop, <span class="literal">false</span>)</div><div class="line">  touch = <span class="literal">true</span>;</div><div class="line">  ajax_pipan_start();</div><div class="line"> </div><div class="line">&#125;</div><div class="line"> </div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">pipan_move</span> (<span class="params">e</span>) </span>&#123;</div><div class="line"> </div><div class="line">  <span class="keyword">var</span> ev = e || <span class="built_in">window</span>.event;</div><div class="line"> </div><div class="line">  <span class="keyword">if</span>(pipan_mouse_x == <span class="literal">null</span>) &#123;</div><div class="line">    pipan_mouse_x = e.changedTouches[<span class="number">0</span>].pageX;</div><div class="line">    pipan_mouse_y = e.changedTouches[<span class="number">0</span>].pageY;</div><div class="line">  &#125;</div><div class="line">  mouse_x = e.changedTouches[<span class="number">0</span>].pageX;</div><div class="line">  mouse_y = e.changedTouches[<span class="number">0</span>].pageY;</div><div class="line">  e.preventDefault()</div><div class="line"> </div><div class="line">  <span class="keyword">var</span> pan_temp = pan_start + <span class="built_in">Math</span>.round((mouse_x-pipan_mouse_x)/<span class="number">5</span>);</div><div class="line">  <span class="keyword">var</span> tilt_temp = tilt_start + <span class="built_in">Math</span>.round((pipan_mouse_y-mouse_y)/<span class="number">5</span>);</div><div class="line">  <span class="keyword">if</span>(pan_temp &gt; <span class="number">200</span>) pan_temp = <span class="number">200</span>;</div><div class="line">  <span class="keyword">if</span>(pan_temp &lt; <span class="number">0</span>) pan_temp = <span class="number">0</span>;</div><div class="line">  <span class="keyword">if</span>(tilt_temp &gt; <span class="number">200</span>) tilt_temp = <span class="number">200</span>;</div><div class="line">  <span class="keyword">if</span>(tilt_temp &lt; <span class="number">0</span>) tilt_temp = <span class="number">0</span>;</div><div class="line"> </div><div class="line">  pan = pan_temp;</div><div class="line">  tilt = tilt_temp;</div><div class="line"> </div><div class="line">&#125;</div><div class="line"> </div><div class="line"> </div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">pipan_stop</span> (<span class="params"></span>) </span>&#123;</div><div class="line"> </div><div class="line">  <span class="built_in">document</span>.body.removeEventListener(<span class="string">'touchmove'</span>, pipan_move, <span class="literal">false</span>)</div><div class="line">  <span class="built_in">document</span>.body.removeEventListener(<span class="string">'touchend'</span>, pipan_stop, <span class="literal">false</span>)</div><div class="line">  touch = <span class="literal">false</span>;</div><div class="line"> </div><div class="line">  <span class="keyword">if</span>(pipan_mouse_x == <span class="literal">null</span>) led_switch();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Добавляем данный код </p>
+<pre><code>&lt;script src=&quot;pipan.js&quot;&gt;&lt;/script&gt;
+</code></pre><p>ниже этой строчки </p>
+<pre><code>&quot;&lt;script src=&quot;script.js&quot;&gt;&lt;/script&gt;&quot; 
+</code></pre><p>в файл “index.php” </p>
+<p>Добавляем код в файл “index.php” кнопки вращения сервоприводов</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;br&gt;</div><div class="line">&lt;input type=&quot;button&quot; value=&quot;up&quot; onclick=&quot;servo_up();&quot;&gt;&lt;br&gt;</div><div class="line">&lt;input type=&quot;button&quot; value=&quot;left&quot; onclick=&quot;servo_left();&quot;&gt;</div><div class="line">&lt;input type=&quot;button&quot; value=&quot;down&quot; onclick=&quot;servo_down();&quot;&gt;</div><div class="line">&lt;input type=&quot;button&quot; value=&quot;right&quot; onclick=&quot;servo_right();&quot;&gt;</div></pre></td></tr></table></figure>
+<p>кнопки для регулирования освещения</p>
+<pre><code>&lt;tr&gt;
+  &lt;td&gt;Pi-Light:&lt;/td&gt;
+  &lt;td&gt;
+    R: &lt;input type=&quot;text&quot; size=4 id=&quot;pilight_r&quot; value=&quot;255&quot;&gt;
+    G: &lt;input type=&quot;text&quot; size=4 id=&quot;pilight_g&quot; value=&quot;255&quot;&gt;
+    B: &lt;input type=&quot;text&quot; size=4 id=&quot;pilight_b&quot; value=&quot;255&quot;&gt;&lt;br&gt;
+    &lt;input type=&quot;button&quot; value=&quot;ON/OFF&quot; onclick=&quot;led_switch();&quot;&gt;
+  &lt;/td&gt;
+&lt;/tr&gt;
+</code></pre><iframe width="560" height="315" src="https://www.youtube.com/embed/ozMebPpSluY" frameborder="0">&nbsp;</iframe>
+      
+    </div>
+
+    
+      
+
+    
+
+    <footer class="article-footer">
+      <a data-url="http://slarke.github.io/2014/11/07/rpi-cam/" data-id="cj6xyyijz0001os6p065e3xl1" class="article-share-link">
+        <i class="fa fa-share"></i> Share
+      </a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/raspberry/">raspberry</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/raspbian/">raspbian</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/urls/">urls</a></li></ul>
+
+
+    </footer>
+  </div>
+  
+    
+<ul id="article-nav" class="nav nav-pills nav-justified">
+  
+  <li role="presentation">
+    <a href="/2014/11/03/book/" id="article-nav-older" class="article-nav-link-wrap">
+      <i class="fa fa-chevron-left pull-left"></i>
+      <span class="article-nav-link-title">Литература для гос экзамена</span>
+    </a>
+  </li>
+  
+  
+  <li role="presentation">
+    <a href="/2015/01/16/noise/" id="article-nav-newer" class="article-nav-link-wrap">
+      <span class="article-nav-link-title">Noise</span>
+      <i class="fa fa-chevron-right pull-right"></i>
+    </a>
+  </li>
+  
+</ul>
+
+
+  
+</article>
+
+
+
+
+        </div>
+        <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+          
+  <div class="sidebar-module sidebar-module-inset">
+  <h4>About</h4>
+  <p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
+
+</div>
+
+
+  
+  <div class="sidebar-module">
+    <h4>Categories</h4>
+    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/DIY/">DIY</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/diy/">diy</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/help/">help</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/manual/">manual</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/music/">music</a><span class="sidebar-module-list-count">5</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/offline/">offline</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/picture/">picture</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/url/">url</a><span class="sidebar-module-list-count">15</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/vgavt/">vgavt</a><span class="sidebar-module-list-count">1</span></li></ul>
+  </div>
+
+
+
+  
+  <div class="sidebar-module">
+    <h4>Tags</h4>
+    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/2-Faced-Funks/">2 Faced Funks</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/ALGORITHM/">ALGORITHM</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Above-Beyond/">Above & Beyond</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Adagio-For-Strings/">Adagio For Strings</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Alice-In-Chains/">Alice In Chains</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Andrew-Bayer/">Andrew Bayer</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Arcade-Fire/">Arcade Fire</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Asking-Alexandria/">Asking Alexandria</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Atoms-For-Peace/">Atoms For Peace</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Betoko/">Betoko</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Chevelle/">Chevelle</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Crosses/">Crosses</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Cynic/">Cynic</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/DIY/">DIY</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Death-From-Above-1979/">Death From Above 1979</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Dyro/">Dyro</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Exxasens/">Exxasens</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/I-Am-Waiting-For-You-Last-Summer/">I Am Waiting For You Last Summer</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Julian-Calor/">Julian Calor</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/KeePass/">KeePass</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Mantar/">Mantar</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Marmozets/">Marmozets</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Nao/">Nao</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Samuel-Barber/">Samuel Barber</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Sysinternals/">Sysinternals</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/The-dillinger-escape-plan/">The dillinger escape plan</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/TrayIt/">TrayIt</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/TrueCrypt/">TrueCrypt</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/anonymity/">anonymity</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/antivirus/">antivirus</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/atx/">atx</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/bitdefender/">bitdefender</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/books/">books</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/clouds/">clouds</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/crypt/">crypt</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/dropsydies/">dropsydies</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/films/">films</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/fuck/">fuck</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/ipv6-windows/">ipv6, windows</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/jetbytes/">jetbytes</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/justbeamit/">justbeamit</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/kaspersky/">kaspersky</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/manual/">manual</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/noise/">noise</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/p2p/">p2p</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/panda/">panda</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/picture/">picture</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/pipebytes/">pipebytes</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/raspberry/">raspberry</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/raspbian/">raspbian</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/search/">search</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/security/">security</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/share/">share</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/spying/">spying</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/symantec/">symantec</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/torrent/">torrent</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/trackers/">trackers</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/unlocker/">unlocker</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/urls/">urls</a><span class="sidebar-module-list-count">18</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/virusinfo/">virusinfo</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/virustotal/">virustotal</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/vpn/">vpn</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/windows/">windows</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Сaribou/">Сaribou</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/бп/">бп</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/передача/">передача</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/шифрование/">шифрование</a><span class="sidebar-module-list-count">1</span></li></ul>
+  </div>
+
+
+
+  
+  <div class="sidebar-module">
+    <h4>Tag Cloud</h4>
+    <p class="tagcloud">
+      <a href="/tags/2-Faced-Funks/" style="font-size: 10px;">2 Faced Funks</a> <a href="/tags/ALGORITHM/" style="font-size: 10px;">ALGORITHM</a> <a href="/tags/Above-Beyond/" style="font-size: 10px;">Above & Beyond</a> <a href="/tags/Adagio-For-Strings/" style="font-size: 10px;">Adagio For Strings</a> <a href="/tags/Alice-In-Chains/" style="font-size: 10px;">Alice In Chains</a> <a href="/tags/Andrew-Bayer/" style="font-size: 10px;">Andrew Bayer</a> <a href="/tags/Arcade-Fire/" style="font-size: 10px;">Arcade Fire</a> <a href="/tags/Asking-Alexandria/" style="font-size: 10px;">Asking Alexandria</a> <a href="/tags/Atoms-For-Peace/" style="font-size: 10px;">Atoms For Peace</a> <a href="/tags/Betoko/" style="font-size: 10px;">Betoko</a> <a href="/tags/Chevelle/" style="font-size: 10px;">Chevelle</a> <a href="/tags/Crosses/" style="font-size: 10px;">Crosses</a> <a href="/tags/Cynic/" style="font-size: 10px;">Cynic</a> <a href="/tags/DIY/" style="font-size: 10px;">DIY</a> <a href="/tags/Death-From-Above-1979/" style="font-size: 10px;">Death From Above 1979</a> <a href="/tags/Dyro/" style="font-size: 10px;">Dyro</a> <a href="/tags/Exxasens/" style="font-size: 10px;">Exxasens</a> <a href="/tags/I-Am-Waiting-For-You-Last-Summer/" style="font-size: 10px;">I Am Waiting For You Last Summer</a> <a href="/tags/Julian-Calor/" style="font-size: 10px;">Julian Calor</a> <a href="/tags/KeePass/" style="font-size: 10px;">KeePass</a> <a href="/tags/Mantar/" style="font-size: 10px;">Mantar</a> <a href="/tags/Marmozets/" style="font-size: 10px;">Marmozets</a> <a href="/tags/Nao/" style="font-size: 10px;">Nao</a> <a href="/tags/Samuel-Barber/" style="font-size: 10px;">Samuel Barber</a> <a href="/tags/Sysinternals/" style="font-size: 10px;">Sysinternals</a> <a href="/tags/The-dillinger-escape-plan/" style="font-size: 10px;">The dillinger escape plan</a> <a href="/tags/TrayIt/" style="font-size: 10px;">TrayIt</a> <a href="/tags/TrueCrypt/" style="font-size: 10px;">TrueCrypt</a> <a href="/tags/anonymity/" style="font-size: 10px;">anonymity</a> <a href="/tags/antivirus/" style="font-size: 10px;">antivirus</a> <a href="/tags/atx/" style="font-size: 10px;">atx</a> <a href="/tags/bitdefender/" style="font-size: 10px;">bitdefender</a> <a href="/tags/books/" style="font-size: 10px;">books</a> <a href="/tags/clouds/" style="font-size: 15px;">clouds</a> <a href="/tags/crypt/" style="font-size: 10px;">crypt</a> <a href="/tags/dropsydies/" style="font-size: 10px;">dropsydies</a> <a href="/tags/films/" style="font-size: 10px;">films</a> <a href="/tags/fuck/" style="font-size: 10px;">fuck</a> <a href="/tags/ipv6-windows/" style="font-size: 10px;">ipv6, windows</a> <a href="/tags/jetbytes/" style="font-size: 10px;">jetbytes</a> <a href="/tags/justbeamit/" style="font-size: 10px;">justbeamit</a> <a href="/tags/kaspersky/" style="font-size: 10px;">kaspersky</a> <a href="/tags/manual/" style="font-size: 15px;">manual</a> <a href="/tags/noise/" style="font-size: 10px;">noise</a> <a href="/tags/p2p/" style="font-size: 10px;">p2p</a> <a href="/tags/panda/" style="font-size: 10px;">panda</a> <a href="/tags/picture/" style="font-size: 10px;">picture</a> <a href="/tags/pipebytes/" style="font-size: 10px;">pipebytes</a> <a href="/tags/raspberry/" style="font-size: 10px;">raspberry</a> <a href="/tags/raspbian/" style="font-size: 10px;">raspbian</a> <a href="/tags/search/" style="font-size: 10px;">search</a> <a href="/tags/security/" style="font-size: 10px;">security</a> <a href="/tags/share/" style="font-size: 10px;">share</a> <a href="/tags/spying/" style="font-size: 10px;">spying</a> <a href="/tags/symantec/" style="font-size: 10px;">symantec</a> <a href="/tags/torrent/" style="font-size: 15px;">torrent</a> <a href="/tags/trackers/" style="font-size: 10px;">trackers</a> <a href="/tags/unlocker/" style="font-size: 10px;">unlocker</a> <a href="/tags/urls/" style="font-size: 20px;">urls</a> <a href="/tags/virusinfo/" style="font-size: 10px;">virusinfo</a> <a href="/tags/virustotal/" style="font-size: 10px;">virustotal</a> <a href="/tags/vpn/" style="font-size: 10px;">vpn</a> <a href="/tags/windows/" style="font-size: 10px;">windows</a> <a href="/tags/Сaribou/" style="font-size: 10px;">Сaribou</a> <a href="/tags/бп/" style="font-size: 10px;">бп</a> <a href="/tags/передача/" style="font-size: 10px;">передача</a> <a href="/tags/шифрование/" style="font-size: 10px;">шифрование</a>
+    </p>
+  </div>
+
+
+  
+  <div class="sidebar-module">
+    <h4>Archives</h4>
+    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/08/">August 2017</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2015/12/">December 2015</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2015/10/">October 2015</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2015/09/">September 2015</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2015/04/">April 2015</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2015/02/">February 2015</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2015/01/">January 2015</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2014/11/">November 2014</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2014/10/">October 2014</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2014/08/">August 2014</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2014/03/">March 2014</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2014/02/">February 2014</a><span class="sidebar-module-list-count">13</span></li></ul>
+  </div>
+
+
+
+  
+  <div class="sidebar-module">
+    <h4>Recents</h4>
+    <ul class="sidebar-module-list">
+      
+        <li>
+          <a href="/2017/08/29/army/">first-post</a>
+        </li>
+      
+        <li>
+          <a href="/2015/12/21/stream/">Stream rtmp</a>
+        </li>
+      
+        <li>
+          <a href="/2015/10/19/utorrent/">Config utorrent</a>
+        </li>
+      
+        <li>
+          <a href="/2015/10/15/deanon/">Deanon</a>
+        </li>
+      
+        <li>
+          <a href="/2015/09/09/windows/">Windows 7, 8, 10</a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+
+        </div>
+    </div>
+  </div>
+  <footer class="blog-footer">
+  <div class="container">
+    <div id="footer-info" class="inner">
+      &copy; 2017 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+  
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js" integrity="sha384-8gBf6Y4YYq7Jx97PIqmTwLPin4hxIzQw5aDmUg/DDhul9fFpbbLcLh3nTIIDJKhx" crossorigin="anonymous"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+
+
+<script src="/js/script.js"></script>
+
+</body>
+</html>

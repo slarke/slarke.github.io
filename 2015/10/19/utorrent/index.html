@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Config utorrent | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="allow_pairingПараметр регулирует возможность для внешних приложений получать право постоянного доступа к uTorrrent. (В настоящее время, в целях безопасности, возможен доступ только с локального компь">
+<meta name="keywords" content="manual,torrent">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Config utorrent">
+<meta property="og:url" content="http://slarke.github.io/2015/10/19/utorrent/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="allow_pairingПараметр регулирует возможность для внешних приложений получать право постоянного доступа к uTorrrent. (В настоящее время, в целях безопасности, возможен доступ только с локального компь">
+<meta property="og:updated_time" content="2017-08-29T18:52:43.416Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Config utorrent">
+<meta name="twitter:description" content="allow_pairingПараметр регулирует возможность для внешних приложений получать право постоянного доступа к uTorrrent. (В настоящее время, в целях безопасности, возможен доступ только с локального компь">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="/css/styles.css">
+  
+
+</head>
+
+<body>
+  <nav class="navbar navbar-inverse">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-menu-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="main-menu-navbar">
+      <ul class="nav navbar-nav">
+        
+          <li><a class=""
+                 href="/index.html">Home</a></li>
+        
+          <li><a class=""
+                 href="/archives/">Archives</a></li>
+        
+      </ul>
+
+      <!--
+      <ul class="nav navbar-nav navbar-right">
+        
+          <li><a href="/atom.xml" title="RSS Feed"><i class="fa fa-rss"></i></a></li>
+        
+      </ul>
+      -->
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+  <div class="container">
+    <div class="blog-header">
+  <h1 class="blog-title">Hexo</h1>
+  
+</div>
+
+    <div class="row">
+        <div class="col-sm-8 blog-main">
+          <article id="post-utorrent" class="article article-type-post" itemscope itemprop="blogPost">
+
+  <header class="article-header">
+    
+  
+    <h1 class="article-title" itemprop="name">
+      Config utorrent
+    </h1>
+  
+
+
+  </header>
+
+  <div class="article-meta">
+    <div class="article-datetime">
+  <a href="/2015/10/19/utorrent/" class="article-date"><time datetime="2015-10-18T21:00:00.000Z" itemprop="datePublished">2015-10-19</time></a>
+</div>
+
+    
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/manual/">manual</a>
+  </div>
+
+
+  </div>
+  <div class="article-inner">
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>allow_pairing<br>Параметр регулирует возможность для внешних приложений получать право постоянного доступа к uTorrrent. (В настоящее время, в целях безопасности, возможен доступ только с локального компьютера.)<br>Включение параметра дает возможность приложению определить что uTorrent запущен, и запросить у пользователя разрешение на постоянный доступ к нему.<br>При получении разрешения от пользователя приложение получает доступ к WebUI. В дальнейшем планируется расширение возможностей.<br>Эта возможность не работает если net.discoverable отключено.</li>
+<li><code>bt.allow_same_ip</code><br>Позволяет множественные входящие соединения с одного IP-адреса.</li>
+<li><code>bt.auto_ul_factor</code>С помощью этой опции можно задать максимальное ограничение, которое будет вноситься автоматичской системой ограничения скорости отдачи, по отношению ко всей величине канала. Измеряется в процентах.</li>
+<li><code>bt.auto_ul_interval</code> Этой опцией можно задать интервал времени по истечению которого, программа будет проводить автоматическую оценку ограничения по скорости отдачи. Каждый раз, когда интервал будет достигнут, действующее ограничение по скорости будет отменяться и начнется оценка канала для определения нового ограничения. Вводится в секундах.</li>
+<li><code>bt.auto_ul_min</code> Эта опция определяет минимальную скорость отдачи, которую программа будет использовать в автоматическом режиме. Если средняя скорость будет ниже этого значения, то µTorrent не будет занижать скорость ниже, чем указано в данной настройке. Указывается в Байтах в секунду.</li>
+<li><code>bt.auto_ul_sample_average</code> В данной опции можно указать как много времени программа будет затрачивать для вычисления среднего значения количества исходящих данных (скользящее окно).</li>
+<li><code>bt.auto_ul_sample_window</code> В данной опции можно указать количество времени, которое будет затрачено программой для определения качества канала. Задается в секундах.</li>
+<li><code>bt.ban_ratio</code> Здесь можно задать отношение хороших пакетов переданных пиром к плохим, по достижению которого пир будет заблокирован. Данная настройка будет действовать только когда значение указанное в пункте bt.ban_threshold будет превышено, а опция <code>bt.use_ban_ratio</code> будет действовать.</li>
+<li><code>bt.ban_threshold</code> В данной опции можно указать максимальное число ошибок от одного пира, после которого пир будет заблокирован полностью или начнет действовать правило bt.ban_ratio.</li>
+<li><code>bt.compact_allocation</code> При скачивании создавать файлы на диске как в языке Python для того, чтобы сэкономить место. Нельзя использовать совместно с опцией «partfile». Эта возможность может работать некорректно, если вы получаете ошибку «Element not found», то это как раз тот случай.</li>
+<li><code>bt.connect_speed</code> Количество соединений, которые инициирует или принимает uTorrent в секунду. Помните, слишком большое значение этого параметра может негативно отразиться на стабильности и скорости вашего интернет-канала.</li>
+<li><code>bt.enable_tracker</code> Разрешает встроенный трекер с адресом <a href="http://ваш_IP:порт/announce" target="_blank" rel="external">http://ваш_IP:порт/announce</a>.</li>
+<li><code>bt.graceful_shutdown</code> При включенном параметре (true) клиент при завершении своей работы будет пытаться отправлять статистику на трекер до тех пор, пока она не уйдет вся по каждому торренту, в противном случае, будет сделана всего одна попытка без всяких проверок. При этом визуально клиента на экране не будет, но он будет висеть в памяти не пугайтесь. Время до полного завершения программы зависит от качества вашего соединения до трекера, от загруженности самого трекера и от количества активных торрентов в клиенте.</li>
+<li><code>bt.multiscrape</code> Разрешает multi-scrape — посылание infohash сразу нескольких торрентов в одном scrape запросе. Нет необходимости менять эту опцию, поскольку µT сам автоматически определяет когда трекер не поддерживает multi-scrape.</li>
+<li><code>bt.no_connect_to_services</code> Не устанавливать соединения с клиентами, использующими порты прослушивания, прописанные в bt.no_connect_to_services_list . Включайте, если ваш антивирус недоволен, и вы не хотите выключать в нём автопроверку почты.</li>
+<li><code>bt.no_connect_to_services_list</code> Список портов, которые uTorrent будет игнорировать при включенной опции bt.no_connect_to_services.</li>
+<li><code>bt.prio_first_last_piece</code> Пытаться в первую очередь скачать первый и последний кусок каждого файла.</li>
+<li><code>bt.ratelimit_tcp_only</code> Функция дает возможность выбора протокола для глобального ограничения скорости. Только TCP, или все протоколы.</li>
+<li><code>bt.scrape_stopped</code> Разрешить scrape для полностью остановленных заданий. По умолчанию выключено, для rutracker.org так и оставить.</li>
+<li><code>bt.send_have_to_seed</code> Разрешает посылание «have» сообщений (о том, что у вас появился новый кусок) сидам.</li>
+<li><code>bt.set_sockbuf</code> Отладочная опция для автоопределения размера TCP буфера (so_sndbuf) и регулирования его в зависимости от вашей скорости отдачи. Она не регулирует его основываясь на задержке (latency).</li>
+<li><code>bt.shutdown_tracker_timeout</code> Данная функция устанавливает максимальное количество времени, которое при выходе uTorrent будет ждать связи с каждым трекером. При значении 0, uTorrent будет ждать связи бесконечно, пока не получит ответ от трекера.</li>
+<li><code>bt.shutdown_upnp_timeout</code> Данная функция устанавливает максимальное количество времени, при котором будет пытаться задействовать переадресацию порта upnp для маршрутизатора.</li>
+<li><code>bt.tcp_rate_control</code> Включение этой опции указывает μTorrent использовать информацию из UTP транспорта в качестве подсказки для ограничения скорости передачи данных TCP. Иначе говоря динамически поджимает TCP так, что бы он не превышал глобальный лимит скорости, вне зависимости от того, включено ли ограничение для uTP. Работает в паре с функцией bt.ratelimit_tcp_only</li>
+<li><code>bt.transp_disposition</code> Контролирует какой транспорт должен использоваться для исходящих (uTorrent 1.8.2) соединений (это значит, что он пропускает только те соединения, которые разрешены выставленным параметром). Допустимые значения параметра:</li>
+</ul>
+<blockquote>
+<pre><code>Для uTorrent 1.8.2
+0 : попытка использования только TCP
+1 : попытка использования обоих TCP и uTP, сброс TCP если uTP прошел успешно
+2 : попытка использования uTP (если поддерживается), иначе TCP
+3 : попытка использования только uTP
+Начиная с версии 2.0.1 RC2 (build 18973) и выше (в ранних нету нового заголовка uTP)
+1 : разрешить инициировать исходящие TCP-соединения.
+2 : разрешить инициировать исходящие uTP-соединения.
+4 : разрешить принимать входящие TCP-соединения.
+8 : разрешить принимать входящие uTP-соединения.
+16 : использовать новый uTP заголовок, данная опция повышает производительность, однако она не совместима с клиентами не поддерживающими её.
+</code></pre></blockquote>
+<p>Начиная с версии 1.8.3 для значения этого параметра используется сумма отдельных составляющих этого параметра 1+2+4+8, причём некоторые слагаемые могут быть исключены, например 1+4+8=13 (до версии 2.0.1 RC2 (build 18973) без нового заголовка uTP (16)). Для версии 1.8.2 выставляется лишь конкретный параметр (0, 1, 2, 3) для исходящих соединений.bt.transp_disposition без исходящих uTP - хороший вариант при плохом отношении провайдера к uTP.</p>
+<ul>
+<li><code>bt.use_ban_ratio</code> Данная опция включает бан пира по коэффициенту, что указан в bt.ban_threshold.</li>
+<li><code>bt.use_rangeblock</code> Позволяет uTorrent автоматически определять пиров, отсылающих поврежденные пакеты и банить ряд этих IP, кроме тех единичных IP–адресов, которые уже были забанены раннее. Когда uTorrent забанит 4 IP-адреса из одного /24 CIDR блока (содержащего в общем количестве 256 адресов), он забанит весь этот блок. Если uTorrent забанит 4 CIDR блока размера /24 (256 IP-адресов), которые входят в один /16 CIDR блок (64 000 адресов), он забанит весь /16 CIDR блок. Когда он забанит 4 /16 CIDR блока, он забанит /8 CIDR блок (16 000 000 IP–адресов).</li>
+<li><code>dht.rate(байт/с)</code> Контролирует как много трафика может использовать DHT. -1 означает авторегулировку: ваша максимальная скорость отдачи / 16, но не меньше 512 и не больше 8192 байт/с.</li>
+<li><code>diskio.cache_reduce_minutes</code> Функция задает интервал, через который программа будет пытаться уменьшить свой кэш</li>
+<li><code>diskio.cache_stripe</code> Задаёт в КБ размер блока чтения из собственного кэша. Как блок обращения к hdd следует задавать степенями двойки. Можно подобрать размер для уменьшения отношения “из файла” к “из кэша” в статистике работы диска.</li>
+<li><code>diskio.coalesce_write_size</code> Определяет размер предела, по достижению которого части файла будут объединяться в один. Значение параметра указывается в байтах в секунду и работает, только если опция diskio.coalesce_writes включена.</li>
+<li><code>diskio.coalesce_writes</code> Данный параметр позволяет uTorrent объединять части файла воедино, чтобы уменьшить их количество. Опция не влияет на скорость загрузки, но может задействовать значительные ресурсы процессора и памяти.<br>Пытается минимизировать количество вызовов к WriteFile. Может помочь добиться немного меньшего количества записей на диск, но за счёт использования дополнительных ресурсов памяти и процессора.</li>
+<li><code>diskio.flush_files</code> Закрывать file handles каждую минуту. Такое поведение может иногда наблюдаемый эффект некорректного поведения системного кэша Windows, в результате чего случаются утечки памяти.</li>
+<li><code>diskio.mark_of_the_web</code> Опция добавляет запись NTFS ADS о том что файл был скачан из интернета</li>
+<li><code>diskio.max_write_queue</code> Функция устанавливает максимальное значение очереди записи на диск перед тем, как покажет сообщение “Диск перегружен”</li>
+<li><code>diskio.no_zero</code> Активация функции (true) отключает заполнение нулями размещённого, но не записанного файла. Её можно включить только из под учетной записи администратора. Опция увеличивает скорость размещения файлов, но появляется возможность того, что некоторые данные не будут полностью удалены с компьютера и затем могут быть использованы другими пользователями и приложениями.<br>При выставлении параметра в false есть вероятность получить ошибку “Диск перегружен”.</li>
+<li><code>diskio.resume_min</code> Функция устанавливает наличный размер в мегабайтах, после которого включается сидирование большого торрента</li>
+<li><code>diskio.smart_hash</code> Вычислять контрольную сумму данных прямо в памяти, вместо того, чтобы записывать данные на диск, считывать, и затем вычислять контрольную сумму. Должно уменьшить количество считываний с диска.</li>
+<li><code>diskio.smart_sparse_hash</code> Опция является решением проблемы возвращения некорректных данных uTorrent о незавершенных файлах, которая может повредить данные, присутствующие на диске раннее.</li>
+<li><code>diskio.sparse_files</code> Резервировать места под файлы ровно столько, сколько необходимо, работает только на NTFS диске, увеличивает фрагментацию.</li>
+<li><code>diskio.use_partfile</code> Использовать «partfile» для хранения кусков данных, частично принадлежащих файлам, которые вы выбрали «Не скачивать». Это поведение по умолчанию, и если вы поставите эту опцию в false, то µT придётся некоторые файлы «Не скачивать» создавать на диске целиком.</li>
+<li><code>gui.auto_restart</code> Режим авто-перезапуска uTorrent после сбоя.<br>Включение позволяет автоматический перезапуск uT если сбой произошел в то время, когда uT был свернут и пользователь не использовал компьютер более минуты. Анонимное сообщение о сбое будет отправлено разработчикам автоматически, crashdump записан не будет.<br>Если сбой будет происходить чаще чем раз в час, то при следующем сбое uTorrent проигнорирует эту настройку, выведет стандартный диалог сообщения о сбое и будет ожидать реакции пользователя.</li>
+<li><code>gui.bypass_search_redirect</code> При использовании поля поиска в окне µT переходить на поисковые сайты напрямую, таким образом не показывая рекламу с сайта search.utorrent.com.</li>
+<li><code>gui.compat_diropen</code> Использовать другое диалоговое окно для выбора папок на диске; для тех, у кого проблемы с диалоговым окном по умолчанию.</li>
+<li><code>gui.default_del_action</code> Устанавливает режим удаления задания, используемый по умолчанию. Эту настройку лучше изменять так: клик правой кнопкой мыши на кнопке удаления задания, и выбрать требуемую установку.</li>
+<li><code>gui.delete_to_trash</code> Перемещать удалённые файлы в корзину. Опцию можно также активировать если сделать клик правой кнопкой мыши на кнопке удаления задания и выбрать «Move to trash if possible».</li>
+<li><code>gui.graph_legend</code> В графике отдачи и загрузки отображается информация о значении линий.</li>
+<li><code>gui.graph_overhead</code> Из графика скоростей во вкладке “Скорость” можно убрать показ служебного трафика, если выбран график “Отдача и загрузка”. При выключенной опции отдельно служебный трафик можно посмотреть выставив во вкладке “Скорость” “Служебный трафик”.</li>
+<li><code>gui.graph_tcp_rate_control</code> В графике скоростей во вкладке “Скорость” появляется отображение ограничений скорости по TCP протоколу.</li>
+<li><code>gui.graphic_progress</code> Создает графическую оболочку, отображающую процент загрузки в поле “Done (Загружено)”.</li>
+<li><code>gui.log_date</code> uTorrent будет вносить дату во временные метки в журнале.</li>
+<li><code>gui.overhead_in_statusbar</code> Включает отображение служебного трафика в строке состояния (внизу окна).</li>
+<li><code>gui.piecebar_progress</code> uTorrent будет отображать в столбце “Done” прогресс загруженных частей, а не процентное соотношение загруженного, к полному размеру файла. Работает только, если gui.graphic_progress включен, а также убирает отображение процента загруженного.</li>
+<li><code>gui.report_problems</code> Данной опцией можно отключить отправку разработчикам информации о разного рода зависаниях и проблемах с вашим uTorrent. В журнале это выглядит примерно так:<blockquote>
+<pre><code>[2010-05-06 xx:yy:zz] Reporting hang diagnostic information.
+[2010-05-06 xx:yy:zz] http://www.utorrent.com/report_probl...hblah.somedata
+[2010-05-06 xx:yy:zz] Hang reported successfully:
+gui.show_notorrents_node
+</code></pre></blockquote>
+</li>
+</ul>
+<ul>
+<li><code>gui.show_notorrents_node = true</code> - При запуске µTorrent, если у вас нет заданий, Вам будет предложено воспользоваться поиском контента.</li>
+<li><code>gui.show_notorrents_node = true</code><br><code>gui.show_notorrents_node = false</code> - При запуске µTorrent, если у вас нет заданий, Вам не будет предложено воспользоваться поиском. Будет отображен пустой торрентлист.</li>
+<li><code>gui.show_notorrents_node = false</code></li>
+<li><code>gui.show_status_icons_in_dl_list</code> Включение и выключение графического отображения статуса задания в клиенте - качает, раздаёт, пауза.<br>скрытый текст</li>
+<li><code>gui.tall_category_list</code> Изменяет размер списка категорий, который находится слева. При включении параметра он становится по высоте на всю область программы, а при отключении, уменьшается в размере до панели полной информации о торренте.</li>
+<li><code>gui.transparent_graph_legend</code> Если включено, эта опция указывает μTorrent фон позади легенды сделать прозрачным (в противном случае, фон непрозрачный).<br>Не рекомендуется включать, потому что из-за включения данной функции наблюдалась сильная загрузка процессора.</li>
+<li><code>gui.update_rate</code> Интервал обновления интерфейса программы в миллисекундах, минимум 500мс.</li>
+<li><code>ipfilter.enable</code> Отключает/включает блокировку IP-адресов, если они указаны в файле ipfilter.dat. Возможна ситуация, когда при включенном фильтре вообще перестает качать/раздавать.</li>
+<li><code>isp.bep22</code> Опция включает поиск локальных ISP–трекеров при помощи серий обратных DNS запросов. Данные трекеры могут обрабатывать информацию о количестве пиров и хеш-данных. Также в ISP–трекерах не отображаются публичные торренты. Тема обсуждения - isp.bep22 - автоматическое добавление провайдером дополнительного адреса ретрекера во все торренты юзеров</li>
+<li><code>isp.peer_policy_url</code> См. тему использование списка приоритетных адресов</li>
+<li><code>net.bind_ip</code> Если у вас в системе несколько сетевых адаптеров, то укажите здесь IP адрес адаптера, который µT должен использовать для входящих соединений.</li>
+<li><code>net.calc_overhead</code> Если он включен, то при настройке скорости учитывается и служебный трафик.</li>
+<li><code>net.disable_ipv6</code> Включает/выключает ipv6. Начиная с версии 2.0.3 ipv6 по умолчанию для WIN7 выключено.</li>
+<li><code>net.discoverable</code> При включении µTorrent ожидает запросы на подключение внешних приложений на одном из предназначенных для этого портов (в настоящий момент это порт 10000) в дополнение к портам, заданным в настройках.<br>Поскольку номера портов заранее известны приложениям, это значительно упрощает их подключение к uTorrent.</li>
+<li><code>net.limit_excludeslocal</code> Определяет должен ли uTorrent учитывать в лимите TransferCap (предел передачи) трафик с локальными пирами.<br>Пиры будут считаться локальными, если они получены через LPD (поиск локальных пиров) или относятся к той же LAN что и uTorrent.<br>Если Transfer Cap (предел передачи) не используется, опция не учитывается нигде.<br>Учтите - этот параметр никак не влияет на ограничения скорости.</li>
+<li><code>net.low_cpu</code> Слегка уменьшает использование процессора. Для очень быстрых каналов выключение этой опции может слегка увеличить скорости.<br>net.max_halfopen<br>Как много полуоткрытых соединений uTorrent может иметь одновременно. Это значение не должно быть выше 8 на непропатченной Windows XP PRO SP2, и выше 4 на непропатченной Windows XP HOME SP2.</li>
+<li><code>net.outgoing_ip</code> Если у вас в системе несколько сетевых адаптеров, то укажите здесь IP адрес адаптера, который µT должен использовать для исходящих соединений.</li>
+<li><code>net.outgoing_max_port</code> Устанавливает верхнюю планку для диапазона исходящего порта. Если в параметре указывается неправильный номер порта или меньше, чем в - net.outgoing_port, то параметр игнорируется и uTorrent будет следовать значению параметра net.outgoing_port.</li>
+<li><code>net.outgoing_port</code> Заставляет µT использовать только этот порт для исходящих соединений (обычно этот порт выбирается случайно для каждого соединения). Только для Windows 2000 и выше. Иногда настройка может не работать корректно. Эта настройка должна использоваться только в исключительных случаях. Может быть использована для уменьшения количества NAT трансляций и таким образом предотвращения зависания некоторых моделей маршрутизаторов. Может быть использована для решения NAT проблемы входящих соединений в некоторых видах NAT.</li>
+<li><code>net.upnp_tcp_only</code> Опция запрещает использование UPnP и UDP портов и задействует вместо них только TCP порты. Может устранить проблему использования некорректно работающих роутеров, которые перезаписывают TCP порты, UDP портами.</li>
+<li><code>net.utp_dynamic_packet_size</code> Управление динамическим размером UDP-пакетов (основа uTP). Дело в том, что в uTP заложен механизм адаптации торрент-клиента под загруженность канала пользователя, и если uTorrent “видит”, что пакеты стали идти слишком медленно, он уменьшает их размер. На практике же подобный подход часто приводил к перегрузке сетевого оборудования, как на стороне пользователя, так и на стороне провайдера. Итак, выставление этой опции в значение false заставит uTorrent пользоваться фиксированными размерами UDP-пакета.</li>
+<li><code>net.utp_initial_packet_size</code> Размер UDP-пакета, определяется как множитель от 150-байт. Проще говоря, UDP-пакет = net.utp_initial_packet_size * 150.<br>Принимает значения от 1 до 8 включительно. Как уже писалось выше, маленький размер пакета может приводить к различным сетевым перегрузкам, поэтому большинству пользователей рациональнее использовать максимальный множитель, т.е. 8.</li>
+<li><code>net.utp_packet size interval</code> Определяет, насколько часто uTP изменяет размер пакета в ответ на условия работы сети. Интервал в секундах. Опция работает при включённом net.utp_dynamic_packet_size</li>
+<li><code>net.utp_receive_target_delay</code> Этот параметр можно охарактеризовать как аналог пинга между вами и удаленным пиром, с которого вы качаете. При превышении этого значения, uTorrent будет думать, что ваш канал перегружен, и будет уменьшать скорость скачивания. Повышение этого значения по сравнению со стандартным вызвано тем, что интернет-сети у большинства далеки от идеала, и теоретически даже между вами и вашим соседом пинг может быть более 100, хотя ни вы, ни он не забили свой интернет-канал.<br>Оптимальное значение этого параметра лучше подобрать экспериментально, оно может достигать 500 и более (рекомендуется начать с 300).<br>Значение параметра - в миллесекундах.</li>
+<li><code>net.utp_target_delay</code> Аналогичный вышесказанному параметр, но отвечает за таймаут при отдаче.</li>
+<li><code>net.wsaevents</code> Если у вас странные проблемы с файерволом, можно попробовать подкрутить эту настройку - уменьшать значение по единичке и смотреть, будет ли разница.</li>
+<li><code>peer.disconnect_inactive</code> Отключаться от неактивных пиров после определённого периода времени (300 секунд по умолчанию). Однако клиент не будет отключаться, если общее число пиров в трое меньше максимального количества соединений на задание.</li>
+<li><code>peer.disconnect_inactive_interval</code> Интервал времени в секундах для предыдущей опции, значения меньше 300 игнорируются</li>
+<li><code>peer.lazy_bitfield</code> Общаться с другими клиентами немного по-другому, иногда помогает против некоторых интернет провайдеров, которые специально препятствуют сидированию.</li>
+<li><code>peer.resolve_country</code> Использовать DNSBL сервис для показа флагов стран в списке пиров. Нельзя использовать одновременнно с файлом flags.conf.</li>
+<li><code>rss.feed_as_default_label</code> Опция проверяет, чтобы добавляемый из RSS-ленты торрент имел в качестве метки торрента имя ленты.</li>
+<li><code>rss.smart_repack_filter</code> uTorrent будет помещать ленты с пометкой REPACK выше в RSS списке, чем без данной пометки.</li>
+<li><code>rss.update_interval</code> Интервал обновления RSS в минутах. 5 минут для значений менее 5.</li>
+<li><code>sys.enable_wine_hacks</code> Настройка устраняет некоторые багги, при использовании Wine. На работу Windows никак не влияет и задействуется только после перезагрузки uTorrent.</li>
+<li><code>queue.dont_count_slow_dl</code> При подсчёте «активных» загрузок не учитывать задания со скоростью скачивания меньше чем указано в queue.slow_dl_threshold (по умолчанию- 1000 байт/с).</li>
+<li><code>queue.dont_count_slow_ul</code> При подсчёте «активных» раздач не учитывать задания со скоростью отдачи меньше чем указано в queue.slow_ul_threshold (по умолчанию- 1000 байт/с)</li>
+<li><code>queue.prio_no_seeds</code> При сидировании давать приоритет заданиям, на раздаче которых нет других сидов.</li>
+<li><code>queue.slow_dl_threshold</code> Уровень, по которому uTorrent различает быстрые и медленные закачки. Скорость ниже уровня, значит задача медленная, выше, значит активная. Указывается байтах в секунду. Используется при включенном параметре -queue.dont_count_slow_dl.</li>
+<li><code>queue.slow_ul_threshold</code> Уровень для раздающих задач, работает аналогично с queue.slow_dl_threshold. Используется при включенном параметре queue.dont_count_slow_ul.</li>
+<li><code>queue.use_seed_peer_ratio</code> Создает очередь на раздачу торрентов. Приоритет отдается тем торрентам, у которых сидов меньше чем пиров. Если пиров не имеется и параметр queue.dont_count_slow_ul отключен, задача будет помещена в конец очереди.</li>
+<li><code>webui.token auth</code> Параметр создает возможность мнимого подключения к Web UI, которое может предотвратить запросы с перекрестных сайтов и использование вашей учетной записи в корыстных целях.</li>
+</ul>
+
+      
+    </div>
+
+    
+      
+
+    
+
+    <footer class="article-footer">
+      <a data-url="http://slarke.github.io/2015/10/19/utorrent/" data-id="cj6xysfx1000cpk6ptelkn8m0" class="article-share-link">
+        <i class="fa fa-share"></i> Share
+      </a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/manual/">manual</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/torrent/">torrent</a></li></ul>
+
+
+    </footer>
+  </div>
+  
+    
+<ul id="article-nav" class="nav nav-pills nav-justified">
+  
+  <li role="presentation">
+    <a href="/2015/10/15/deanon/" id="article-nav-older" class="article-nav-link-wrap">
+      <i class="fa fa-chevron-left pull-left"></i>
+      <span class="article-nav-link-title">Deanon</span>
+    </a>
+  </li>
+  
+  
+  <li role="presentation">
+    <a href="/2015/12/21/stream/" id="article-nav-newer" class="article-nav-link-wrap">
+      <span class="article-nav-link-title">Stream rtmp</span>
+      <i class="fa fa-chevron-right pull-right"></i>
+    </a>
+  </li>
+  
+</ul>
+
+
+  
+</article>
+
+
+
+
+        </div>
+        <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+          
+  <div class="sidebar-module sidebar-module-inset">
+  <h4>About</h4>
+  <p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
+
+</div>
+
+
+  
+  <div class="sidebar-module">
+    <h4>Categories</h4>
+    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/DIY/">DIY</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/diy/">diy</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/help/">help</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/manual/">manual</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/music/">music</a><span class="sidebar-module-list-count">5</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/offline/">offline</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/picture/">picture</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/url/">url</a><span class="sidebar-module-list-count">15</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/vgavt/">vgavt</a><span class="sidebar-module-list-count">1</span></li></ul>
+  </div>
+
+
+
+  
+  <div class="sidebar-module">
+    <h4>Tags</h4>
+    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/2-Faced-Funks/">2 Faced Funks</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/ALGORITHM/">ALGORITHM</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Above-Beyond/">Above & Beyond</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Adagio-For-Strings/">Adagio For Strings</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Alice-In-Chains/">Alice In Chains</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Andrew-Bayer/">Andrew Bayer</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Arcade-Fire/">Arcade Fire</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Asking-Alexandria/">Asking Alexandria</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Atoms-For-Peace/">Atoms For Peace</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Betoko/">Betoko</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Chevelle/">Chevelle</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Crosses/">Crosses</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Cynic/">Cynic</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/DIY/">DIY</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Death-From-Above-1979/">Death From Above 1979</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Dyro/">Dyro</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Exxasens/">Exxasens</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/I-Am-Waiting-For-You-Last-Summer/">I Am Waiting For You Last Summer</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Julian-Calor/">Julian Calor</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/KeePass/">KeePass</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Mantar/">Mantar</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Marmozets/">Marmozets</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Nao/">Nao</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Samuel-Barber/">Samuel Barber</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Sysinternals/">Sysinternals</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/The-dillinger-escape-plan/">The dillinger escape plan</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/TrayIt/">TrayIt</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/TrueCrypt/">TrueCrypt</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/anonymity/">anonymity</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/antivirus/">antivirus</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/atx/">atx</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/bitdefender/">bitdefender</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/books/">books</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/clouds/">clouds</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/crypt/">crypt</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/dropsydies/">dropsydies</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/films/">films</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/fuck/">fuck</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/ipv6-windows/">ipv6, windows</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/jetbytes/">jetbytes</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/justbeamit/">justbeamit</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/kaspersky/">kaspersky</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/manual/">manual</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/noise/">noise</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/p2p/">p2p</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/panda/">panda</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/picture/">picture</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/pipebytes/">pipebytes</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/raspberry/">raspberry</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/raspbian/">raspbian</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/search/">search</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/security/">security</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/share/">share</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/spying/">spying</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/symantec/">symantec</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/torrent/">torrent</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/trackers/">trackers</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/unlocker/">unlocker</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/urls/">urls</a><span class="sidebar-module-list-count">18</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/virusinfo/">virusinfo</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/virustotal/">virustotal</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/vpn/">vpn</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/windows/">windows</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/Сaribou/">Сaribou</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/бп/">бп</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/передача/">передача</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/шифрование/">шифрование</a><span class="sidebar-module-list-count">1</span></li></ul>
+  </div>
+
+
+
+  
+  <div class="sidebar-module">
+    <h4>Tag Cloud</h4>
+    <p class="tagcloud">
+      <a href="/tags/2-Faced-Funks/" style="font-size: 10px;">2 Faced Funks</a> <a href="/tags/ALGORITHM/" style="font-size: 10px;">ALGORITHM</a> <a href="/tags/Above-Beyond/" style="font-size: 10px;">Above & Beyond</a> <a href="/tags/Adagio-For-Strings/" style="font-size: 10px;">Adagio For Strings</a> <a href="/tags/Alice-In-Chains/" style="font-size: 10px;">Alice In Chains</a> <a href="/tags/Andrew-Bayer/" style="font-size: 10px;">Andrew Bayer</a> <a href="/tags/Arcade-Fire/" style="font-size: 10px;">Arcade Fire</a> <a href="/tags/Asking-Alexandria/" style="font-size: 10px;">Asking Alexandria</a> <a href="/tags/Atoms-For-Peace/" style="font-size: 10px;">Atoms For Peace</a> <a href="/tags/Betoko/" style="font-size: 10px;">Betoko</a> <a href="/tags/Chevelle/" style="font-size: 10px;">Chevelle</a> <a href="/tags/Crosses/" style="font-size: 10px;">Crosses</a> <a href="/tags/Cynic/" style="font-size: 10px;">Cynic</a> <a href="/tags/DIY/" style="font-size: 10px;">DIY</a> <a href="/tags/Death-From-Above-1979/" style="font-size: 10px;">Death From Above 1979</a> <a href="/tags/Dyro/" style="font-size: 10px;">Dyro</a> <a href="/tags/Exxasens/" style="font-size: 10px;">Exxasens</a> <a href="/tags/I-Am-Waiting-For-You-Last-Summer/" style="font-size: 10px;">I Am Waiting For You Last Summer</a> <a href="/tags/Julian-Calor/" style="font-size: 10px;">Julian Calor</a> <a href="/tags/KeePass/" style="font-size: 10px;">KeePass</a> <a href="/tags/Mantar/" style="font-size: 10px;">Mantar</a> <a href="/tags/Marmozets/" style="font-size: 10px;">Marmozets</a> <a href="/tags/Nao/" style="font-size: 10px;">Nao</a> <a href="/tags/Samuel-Barber/" style="font-size: 10px;">Samuel Barber</a> <a href="/tags/Sysinternals/" style="font-size: 10px;">Sysinternals</a> <a href="/tags/The-dillinger-escape-plan/" style="font-size: 10px;">The dillinger escape plan</a> <a href="/tags/TrayIt/" style="font-size: 10px;">TrayIt</a> <a href="/tags/TrueCrypt/" style="font-size: 10px;">TrueCrypt</a> <a href="/tags/anonymity/" style="font-size: 10px;">anonymity</a> <a href="/tags/antivirus/" style="font-size: 10px;">antivirus</a> <a href="/tags/atx/" style="font-size: 10px;">atx</a> <a href="/tags/bitdefender/" style="font-size: 10px;">bitdefender</a> <a href="/tags/books/" style="font-size: 10px;">books</a> <a href="/tags/clouds/" style="font-size: 15px;">clouds</a> <a href="/tags/crypt/" style="font-size: 10px;">crypt</a> <a href="/tags/dropsydies/" style="font-size: 10px;">dropsydies</a> <a href="/tags/films/" style="font-size: 10px;">films</a> <a href="/tags/fuck/" style="font-size: 10px;">fuck</a> <a href="/tags/ipv6-windows/" style="font-size: 10px;">ipv6, windows</a> <a href="/tags/jetbytes/" style="font-size: 10px;">jetbytes</a> <a href="/tags/justbeamit/" style="font-size: 10px;">justbeamit</a> <a href="/tags/kaspersky/" style="font-size: 10px;">kaspersky</a> <a href="/tags/manual/" style="font-size: 15px;">manual</a> <a href="/tags/noise/" style="font-size: 10px;">noise</a> <a href="/tags/p2p/" style="font-size: 10px;">p2p</a> <a href="/tags/panda/" style="font-size: 10px;">panda</a> <a href="/tags/picture/" style="font-size: 10px;">picture</a> <a href="/tags/pipebytes/" style="font-size: 10px;">pipebytes</a> <a href="/tags/raspberry/" style="font-size: 10px;">raspberry</a> <a href="/tags/raspbian/" style="font-size: 10px;">raspbian</a> <a href="/tags/search/" style="font-size: 10px;">search</a> <a href="/tags/security/" style="font-size: 10px;">security</a> <a href="/tags/share/" style="font-size: 10px;">share</a> <a href="/tags/spying/" style="font-size: 10px;">spying</a> <a href="/tags/symantec/" style="font-size: 10px;">symantec</a> <a href="/tags/torrent/" style="font-size: 15px;">torrent</a> <a href="/tags/trackers/" style="font-size: 10px;">trackers</a> <a href="/tags/unlocker/" style="font-size: 10px;">unlocker</a> <a href="/tags/urls/" style="font-size: 20px;">urls</a> <a href="/tags/virusinfo/" style="font-size: 10px;">virusinfo</a> <a href="/tags/virustotal/" style="font-size: 10px;">virustotal</a> <a href="/tags/vpn/" style="font-size: 10px;">vpn</a> <a href="/tags/windows/" style="font-size: 10px;">windows</a> <a href="/tags/Сaribou/" style="font-size: 10px;">Сaribou</a> <a href="/tags/бп/" style="font-size: 10px;">бп</a> <a href="/tags/передача/" style="font-size: 10px;">передача</a> <a href="/tags/шифрование/" style="font-size: 10px;">шифрование</a>
+    </p>
+  </div>
+
+
+  
+  <div class="sidebar-module">
+    <h4>Archives</h4>
+    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2017/08/">August 2017</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2015/12/">December 2015</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2015/10/">October 2015</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2015/09/">September 2015</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2015/04/">April 2015</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2015/02/">February 2015</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2015/01/">January 2015</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2014/11/">November 2014</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2014/10/">October 2014</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2014/08/">August 2014</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2014/03/">March 2014</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2014/02/">February 2014</a><span class="sidebar-module-list-count">13</span></li></ul>
+  </div>
+
+
+
+  
+  <div class="sidebar-module">
+    <h4>Recents</h4>
+    <ul class="sidebar-module-list">
+      
+        <li>
+          <a href="/2017/08/29/army/">first-post</a>
+        </li>
+      
+        <li>
+          <a href="/2015/12/21/stream/">Stream rtmp</a>
+        </li>
+      
+        <li>
+          <a href="/2015/10/19/utorrent/">Config utorrent</a>
+        </li>
+      
+        <li>
+          <a href="/2015/10/15/deanon/">Deanon</a>
+        </li>
+      
+        <li>
+          <a href="/2015/09/09/windows/">Windows 7, 8, 10</a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+
+        </div>
+    </div>
+  </div>
+  <footer class="blog-footer">
+  <div class="container">
+    <div id="footer-info" class="inner">
+      &copy; 2017 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+  
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js" integrity="sha384-8gBf6Y4YYq7Jx97PIqmTwLPin4hxIzQw5aDmUg/DDhul9fFpbbLcLh3nTIIDJKhx" crossorigin="anonymous"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+
+
+<script src="/js/script.js"></script>
+
+</body>
+</html>
