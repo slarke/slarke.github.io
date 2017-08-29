@@ -6,7 +6,7 @@ category: url
 image:  url
 tags: []
 ---
-{% include JB/setup %}
+
 
 Arcsoft TotalMedia Theatre
 
