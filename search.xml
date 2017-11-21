@@ -6,7 +6,7 @@
       <title><![CDATA[Бэкап телеграм диалогов, каналов]]></title>
       <url>/2017/11/21/backup_telegram/</url>
       <content type="html"><![CDATA[<p>Это слишком долгий путь для бэкапа телеграма, надо запилить docker контейнер, а пока есть, что есть. Обобщенная информация для исключения багов при работе.</p>
-<p>использовал образ Ubuntu 16.04.3 LTS</p>
+<p>использовал образ <a href="https://www.ubuntu.com/download/desktop" target="_blank" rel="external">Ubuntu 16.04.3 LTS</a></p>
 <p>Используемые репозитории</p>
 <p><a href="https://github.com/vysheng/tg" target="_blank" rel="external">https://github.com/vysheng/tg</a><br><a href="https://github.com/tvdstaaij/telegram-history-dump" target="_blank" rel="external">https://github.com/tvdstaaij/telegram-history-dump</a><br>На этом всё, дальше для тех кто не знает английский или лень искать решение, возникающих ошибок</p>
 <p> Устанавливаем git, если не установлен</p>
