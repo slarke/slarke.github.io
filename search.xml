@@ -7,65 +7,53 @@
       <url>/2017/11/21/backup_telegram/</url>
       <content type="html"><![CDATA[<p>Это слишком долгий путь для бэкапа телеграма, надо запилить docker контейнер, а пока есть, что есть. Обобщенная информация для исключения багов при работе.</p>
 <p>использовал образ Ubuntu 16.04.3 LTS</p>
-<p>Используемые репозитории<br><a href="https://github.com/vysheng/tg" target="_blank" rel="external">https://github.com/vysheng/tg</a><br><a href="https://github.com/tvdstaaij/telegram-history-dump" target="_blank" rel="external">https://github.com/tvdstaaij/telegram-history-dump</a><br>На этом всё, дальше для тех кто не знает английский или лень искать решение, возникающих ошибок</p>
-<ol>
-<li>Устанавливаем git, если не установлен<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install git</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>Скачиваем консольный телеграм<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git clone --recursive https://github.com/vysheng/tg.git &amp;&amp; cd tg</div></pre></td></tr></table></figure></p>
-<ol>
-<li>Скачиваем библиотеки <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install libreadline-dev libconfig-dev libssl-dev lua5.2 liblua5.2-dev libevent-dev libjansson-dev libpython-dev make</div></pre></td></tr></table></figure>
-</li>
-</ol>
+<p>Используемые репозитории</p>
+<p><a href="https://github.com/vysheng/tg" target="_blank" rel="external">https://github.com/vysheng/tg</a><br><a href="https://github.com/tvdstaaij/telegram-history-dump" target="_blank" rel="external">https://github.com/tvdstaaij/telegram-history-dump</a><br>На этом всё, дальше для тех кто не знает английский или лень искать решение, возникающих ошибок</p>
+<p> Устанавливаем git, если не установлен</p>
+<p><code>sudo apt-get install git</code></p>
+<p> Скачиваем консольный телеграм</p>
+<p><code>git clone --recursive https://github.com/vysheng/tg.git &amp;&amp; cd tg</code></p>
+<p>Скачиваем библиотеки </p>
+<p><code>sudo apt-get install libreadline-dev libconfig-dev libssl-dev lua5.2 liblua5.2-dev libevent-dev libjansson-dev libpython-dev make</code></p>
 <p>Если скомпилировать на данном этапе, то будут ошибки.</p>
-<ol>
-<li>В файле tgl/mtproto-utils.c, изменяем строки 101 и 115<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">assert (0); // As long as nobody ever uses this code, assume it is broken.</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>на<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">//assert (0); // As long as nobody ever uses this code, assume it is broken.</div></pre></td></tr></table></figure></p>
+<p>В файле tgl/mtproto-utils.c, изменяем строки 101 и 115</p>
+<p><code>assert (0); // As long as nobody ever uses this code, assume it is broken.</code></p>
+<p>на</p>
+<p><code>//assert (0); // As long as nobody ever uses this code, assume it is broken.</code></p>
 <p> или удаляем.</p>
-<ol>
-<li><p>В файле<em> tgl/queries.c</em> находим функцию static void _tgl_do_get_history и изменяем, как показано ниже</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">static void _tgl_do_get_history (struct tgl_state *TLS, struct get_history_extra *E, void (*callback)(struct tgl_state *TLS,void *callback_extra, int success, int size, struct tgl_message *list[]), void *callback_extra) &#123;</div><div class="line">  clear_packet ();</div><div class="line">  //tgl_peer_t *C = tgl_peer_get (TLS, E-&gt;id);</div><div class="line">  //if (tgl_get_peer_type (E-&gt;id) != TGL_PEER_CHANNEL || (C &amp;&amp; (C-&gt;flags &amp; TGLCHF_MEGAGROUP))) &#123;</div><div class="line">    out_int (CODE_messages_get_history);</div><div class="line">    out_peer_id (TLS, E-&gt;id);</div><div class="line">  //&#125; else &#123;    </div><div class="line">  //  out_int (CODE_channels_get_important_history);</div><div class="line"></div><div class="line">  //  out_int (CODE_input_channel);</div><div class="line">  //  out_int (tgl_get_peer_id (E-&gt;id));</div><div class="line">  //  out_long (E-&gt;id.access_hash);</div><div class="line">  // &#125;</div><div class="line">  out_int (E-&gt;max_id);</div><div class="line">  out_int (E-&gt;offset);</div><div class="line">  out_int (E-&gt;limit);</div><div class="line">  out_int (0);</div><div class="line">  out_int (0);</div><div class="line">  tglq_send_query (TLS, TLS-&gt;DC_working, packet_ptr - packet_buffer, packet_buffer, &amp;get_history_methods, E, callback, callback_extra);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>Компилируем</p>
-</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">./configure </div><div class="line">make</div></pre></td></tr></table></figure>
-<ol>
-<li>Пробуем запустить телеграм<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">bin/telegram-cli -k tg-server.pub</div></pre></td></tr></table></figure>
-</li>
-</ol>
+<p>В файле<em> tgl/queries.c</em> находим функцию static void _tgl_do_get_history и изменяем, как показано ниже<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">static void _tgl_do_get_history (struct tgl_state *TLS, struct get_history_extra *E, void (*callback)(struct tgl_state *TLS,void *callback_extra, int success, int size, struct tgl_message *list[]), void *callback_extra) &#123;</div><div class="line">  clear_packet ();</div><div class="line">  //tgl_peer_t *C = tgl_peer_get (TLS, E-&gt;id);</div><div class="line">  //if (tgl_get_peer_type (E-&gt;id) != TGL_PEER_CHANNEL || (C &amp;&amp; (C-&gt;flags &amp; TGLCHF_MEGAGROUP))) &#123;</div><div class="line">    out_int (CODE_messages_get_history);</div><div class="line">    out_peer_id (TLS, E-&gt;id);</div><div class="line">  //&#125; else &#123;    </div><div class="line">  //  out_int (CODE_channels_get_important_history);</div><div class="line"></div><div class="line">  //  out_int (CODE_input_channel);</div><div class="line">  //  out_int (tgl_get_peer_id (E-&gt;id));</div><div class="line">  //  out_long (E-&gt;id.access_hash);</div><div class="line">  // &#125;</div><div class="line">  out_int (E-&gt;max_id);</div><div class="line">  out_int (E-&gt;offset);</div><div class="line">  out_int (E-&gt;limit);</div><div class="line">  out_int (0);</div><div class="line">  out_int (0);</div><div class="line">  tglq_send_query (TLS, TLS-&gt;DC_working, packet_ptr - packet_buffer, packet_buffer, &amp;get_history_methods, E, callback, callback_extra);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>Компилируем</p>
+<p><code>./configure 
+make</code></p>
+<p>Пробуем запустить телеграм</p>
+<p><code>bin/telegram-cli -k tg-server.pub</code></p>
 <p>залогинились, если всё работает, то супер.</p>
-<ol>
-<li>Проверяем версию Ruby<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ruby --version</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>если не установлен, то устанавливаем<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install ruby-full</div></pre></td></tr></table></figure></p>
-<ol>
-<li><p>Скачиваем репозиторий</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git clone https://github.com/tvdstaaij/telegram-history-dump.git &amp;&amp; cd telegram-history-dump</div></pre></td></tr></table></figure>
-</li>
-<li><p>Настраиваем файл config.yaml</p>
+<p>Проверяем версию Ruby</p>
+<p><code>ruby --version</code></p>
+<p>если не установлен, то устанавливаем</p>
+<p><code>sudo apt-get install ruby-full</code></p>
+<p>Скачиваем репозиторий</p>
+<p><code>git clone https://github.com/tvdstaaij/telegram-history-dump.git &amp;&amp; cd telegram-history-dump</code></p>
+<p>Настраиваем файл config.yaml</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">backup_channels: [</div><div class="line">    Название канала</div><div class="line">  ]</div></pre></td></tr></table></figure>
-</li>
-</ol>
 <p>для сохранения в html<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">formatters: &#123;</div><div class="line">  plaintext: &#123;</div><div class="line">    date_format: &apos;%Y-%m-%d %H:%M:%S&apos;</div><div class="line">  &#125;,</div><div class="line">  bare: &#123;&#125;,</div><div class="line">  pisg: &#123;&#125;,</div><div class="line">  html: &#123;</div><div class="line">    paginate: 1500, # messages per page</div><div class="line">    use_utc_time: false,</div><div class="line">    timestamps_every: 50, # messages</div><div class="line">    loop_video: true, # loop and autoplay videos</div><div class="line">  &#125;,</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>выбираем что скачивать<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">download_media: &#123;</div><div class="line">    photo: true,</div><div class="line">    document: true,</div><div class="line">    audio: false,</div><div class="line">    video: false,</div><div class="line">  &#125;</div></pre></td></tr></table></figure></p>
 <p>чтобы файлы сохранялись в отдельную директорию<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">copy_media: true</div></pre></td></tr></table></figure></p>
-<ol>
-<li>Запускаем телеграм из соответствующей директории<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">bin/telegram-cli --json -P 9009</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>открываем новое терминальное окно, запускаем из папки telegram-history-dump</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ruby telegram-history-dump.rb</div></pre></td></tr></table></figure>
+<p> Запускаем телеграм из соответствующей директории</p>
+<p><code>bin/telegram-cli --json -P 9009</code></p>
+<p>Открываем новое терминальное окно, запускаем из папки telegram-history-dump</p>
+<p><code>ruby telegram-history-dump.rb</code></p>
 <p>Результаты  будут в директории telegram-history-dump/output</p>
 ]]></content>
       
         
         <tags>
             
-            <tag> manual, backup, telegram </tag>
+            <tag> manual </tag>
+            
+            <tag> backup </tag>
+            
+            <tag> telegram </tag>
             
         </tags>
         
