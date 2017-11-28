@@ -3,6 +3,29 @@
   
     
     <entry>
+      <title><![CDATA[Raspberry pi 2 Погода]]></title>
+      <url>/2017/11/28/rpi-weather/</url>
+      <content type="html"><![CDATA[<p><a href="https://www.adafruit.com/product/1601" target="_blank" rel="external">https://www.adafruit.com/product/1601</a></p>
+<p><a href="https://learn.adafruit.com/adafruit-pitft-28-inch-resistive-touchscreen-display-raspberry-pi" target="_blank" rel="external">https://learn.adafruit.com/adafruit-pitft-28-inch-resistive-touchscreen-display-raspberry-pi</a><br>Готовый скрипт Adafruit работает  Debian 8 (jessie), но новых версиях не работает. Последний образ raspbian jessie<br><a href="https://downloads.raspberrypi.org/raspbian/images/raspbian-2017-07-05/" target="_blank" rel="external">https://downloads.raspberrypi.org/raspbian/images/raspbian-2017-07-05/</a><br>После установки образа raspbian, необходимо закинуть пустой файл ssh, тогда будет возможность подключаться.</p>
+<p>Установка<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">curl -SLs https://apt.adafruit.com/add-pin | sudo bash</div><div class="line">sudo apt-get install raspberrypi-bootloader adafruit-pitft-helper raspberrypi-kernel</div></pre></td></tr></table></figure></p>
+<p>sudo adafruit-pitft-helper -t 28r</p>
+<p><a href="https://magicmirror.builders/" target="_blank" rel="external">MagicMirror</a> популярен, но версии Raspberry Pi B+ и более ранние поддерживают только режим сервера. Поэтому для отображения выбрал <a href="https://github.com/n0bel/PiClock" target="_blank" rel="external">PiClock</a></p>
+<p>подробная  установка <a href="https://github.com/n0bel/PiClock/blob/master/Documentation/Install-Clock-Only.md" target="_blank" rel="external">https://github.com/n0bel/PiClock/blob/master/Documentation/Install-Clock-Only.md</a></p>
+<p>Потребуется  api key <a href="https://www.wunderground.com/weather/api/" target="_blank" rel="external">https://www.wunderground.com/weather/api/</a><br><img src="/img/shot.jpg" alt="Test"></p>
+]]></content>
+      
+        
+        <tags>
+            
+            <tag> manual </tag>
+            
+            <tag> DIY </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[Бэкап телеграм диалогов, каналов]]></title>
       <url>/2017/11/21/backup_telegram/</url>
       <content type="html"><![CDATA[<p>Это слишком долгий путь для бэкапа телеграма, надо запилить docker контейнер, а пока есть, что есть. Обобщенная информация для исключения багов при работе.</p>

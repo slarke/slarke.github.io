@@ -10,6 +10,9 @@
 
     <!--Description-->
     
+        <meta name="description" content="https://www.adafruit.com/product/1601
+https://learn.adafruit.com/adafruit-pitft-28-inch-resistive-touchscreen-display-raspberry-piГотовый скрипт Adafr">
+    
 
     <!--Author-->
     
@@ -18,7 +21,7 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="Hexo"/>
+        <meta property="og:title" content="Raspberry pi 2 Погода"/>
     
 
     <!--Open Graph Description-->
@@ -29,7 +32,7 @@
 
     <!--Type page-->
     
-        <meta property="og:type" content="website" />
+        <meta property="og:type" content="article" />
     
 
     <!--Page Cover-->
@@ -40,7 +43,7 @@
 
     <!-- Title -->
     
-    <title>page - Hexo</title>
+    <title>Raspberry pi 2 Погода - Hexo</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
@@ -143,68 +146,78 @@
 
     <!-- Main Content -->
     <!-- Page Header -->
-<!-- Set your background image for this header in the theme's configuration: index_cover -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
 <header class="intro-header" style="background-image: url('http://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="site-heading">
-                    <h1>Hexo</h1>
-                    <hr class="small">
-                    <span class="subheading"></span>
+                <div class="post-heading">
+                    <h1>Raspberry pi 2 Погода</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2017-11-28
+                        
+                    </span>
                 </div>
             </div>
         </div>
     </div>
 </header>
 
-<!-- Main Content -->
-<div class="container">
-    <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            
-                <div class="post-preview">
-    <a href="/2014/02/16/secure/">
-        <h2 class="post-title">
-            OS + programm for privacy
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2014-02-16
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/2014/02/05/cloud/">
-        <h2 class="post-title">
-            Бесплатные облака
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2014-02-05
-    </p>
-</div>
-<hr>
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/manual/">#manual</a> <a href="/tags/DIY/">#DIY</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                </div>
             
 
-            <ul class="pager">
-    
-        <li class="previous"><a href="/">&larr;  Назад</a></li>
-    
-    
-</ul>
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p><a href="https://www.adafruit.com/product/1601" target="_blank" rel="external">https://www.adafruit.com/product/1601</a></p>
+<p><a href="https://learn.adafruit.com/adafruit-pitft-28-inch-resistive-touchscreen-display-raspberry-pi" target="_blank" rel="external">https://learn.adafruit.com/adafruit-pitft-28-inch-resistive-touchscreen-display-raspberry-pi</a><br>Готовый скрипт Adafruit работает  Debian 8 (jessie), но новых версиях не работает. Последний образ raspbian jessie<br><a href="https://downloads.raspberrypi.org/raspbian/images/raspbian-2017-07-05/" target="_blank" rel="external">https://downloads.raspberrypi.org/raspbian/images/raspbian-2017-07-05/</a><br>После установки образа raspbian, необходимо закинуть пустой файл ssh, тогда будет возможность подключаться.</p>
+<p>Установка<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">curl -SLs https://apt.adafruit.com/add-pin | sudo bash</div><div class="line">sudo apt-get install raspberrypi-bootloader adafruit-pitft-helper raspberrypi-kernel</div></pre></td></tr></table></figure></p>
+<p>sudo adafruit-pitft-helper -t 28r</p>
+<p><a href="https://magicmirror.builders/" target="_blank" rel="external">MagicMirror</a> популярен, но версии Raspberry Pi B+ и более ранние поддерживают только режим сервера. Поэтому для отображения выбрал <a href="https://github.com/n0bel/PiClock" target="_blank" rel="external">PiClock</a></p>
+<p>подробная  установка <a href="https://github.com/n0bel/PiClock/blob/master/Documentation/Install-Clock-Only.md" target="_blank" rel="external">https://github.com/n0bel/PiClock/blob/master/Documentation/Install-Clock-Only.md</a></p>
+<p>Потребуется  api key <a href="https://www.wunderground.com/weather/api/" target="_blank" rel="external">https://www.wunderground.com/weather/api/</a><br><img src="/img/shot.jpg" alt="Test"></p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
         </div>
     </div>
-</div>
-
-
+</article>
 
     <!-- Footer -->
     <hr />
