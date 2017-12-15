@@ -3,6 +3,48 @@
   
     
     <entry>
+      <title><![CDATA[Dnsmasq настройка dns и dhcp]]></title>
+      <url>/2017/12/14/dns-dhcp/</url>
+      <content type="html"><![CDATA[<p>Важно прописать статический маршрут до будущего dns сервера</p>
+<pre><code>sudo nano /etc/dhcpcd.conf
+</code></pre><p>добавить в конец файла</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">interface eth0</div><div class="line">static ip_adress=192.168.1.2/24</div><div class="line">static routers=192.168.1.1</div><div class="line">static domain_name_servers=192.168.1.1</div></pre></td></tr></table></figure>
+<p>Устанавливаем dnsmasq</p>
+<pre><code>sudo apt-get install dnsmasq
+</code></pre><p>создаем новый кофигурационный файл</p>
+<pre><code>sudo nano /etc/dnsmasq.d/home.dns
+</code></pre><p>добавляем в файл<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"># General configuration</div><div class="line">domain-needed</div><div class="line">bogus-priv</div><div class="line">domain=home.lan #название домена</div><div class="line">dhcp-range=192.168.1.10,static,48h #начальный адрес, выдаваемый dhcp, время аренды</div><div class="line">dhcp-option=3,192.168.1.1 #DHCP с номером 3 — это шлюз по умолчанию </div><div class="line"></div><div class="line"># Static IPs</div><div class="line">dhcp-host=00:00:5e:00:53:42,thedoctor,192.168.1.10</div><div class="line">dhcp-host=00:00:5e:00:53:01,00:00:5e:00:53:02,tardis,192.168.1.11</div></pre></td></tr></table></figure></p>
+<p>перезапускаем dnsmasq</p>
+<pre><code>sudo service dnsmasq restart
+</code></pre><p>редактируем hosts добавляем строки</p>
+<pre><code>sudo nano /etc/hosts
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">192.168.1.1    router.home.lan router</div><div class="line">192.168.1.2    dnsserver.home.lan dnsserver</div></pre></td></tr></table></figure>
+<p>Отключаем в роутере dhcp сервер.</p>
+<p>лог DHCP</p>
+<pre><code>tail -f /var/log/syslog | grep DHCP
+</code></pre><p>Блокировка рекламы<br><a href="https://github.com/notracking/hosts-blocklists" target="_blank" rel="external">https://github.com/notracking/hosts-blocklists</a></p>
+]]></content>
+      
+        <categories>
+            
+            <category> manual </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> manual </tag>
+            
+            <tag> dns </tag>
+            
+            <tag> dhcp </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[Raspberry pi 2 Погода]]></title>
       <url>/2017/11/28/rpi-weather/</url>
       <content type="html"><![CDATA[<p><a href="https://www.adafruit.com/product/1601" target="_blank" rel="external">https://www.adafruit.com/product/1601</a></p>
