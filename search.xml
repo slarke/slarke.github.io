@@ -3,7 +3,7 @@
   
     
     <entry>
-      <title><![CDATA[Windows 10]]></title>
+      <title><![CDATA[Windows 10 Stop Spying]]></title>
       <url>/2018/01/10/windows10/</url>
       <content type="html"><![CDATA[<p>Без воды и объяснений</p>
 <h2 id="Отключение-Cortana"><a href="#Отключение-Cortana" class="headerlink" title="Отключение Cortana"></a>Отключение Cortana</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">reg add &quot;HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Search&quot; /v &quot;AllowCortana&quot; /t REG_DWORD /d 0 /f</div><div class="line">reg add &quot;HKLM\SOFTWARE\Microsoft\PolicyManager\default\Experience\AllowCortana&quot; /v &quot;value&quot; /t REG_DWORD /d 0 /f</div><div class="line">reg add &quot;HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Search&quot; /v &quot;CortanaEnabled&quot; /t REG_DWORD /d 0 /f </div><div class="line">reg add &quot;HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Search&quot; /v &quot;CortanaEnabled&quot; /t REG_DWORD /d 0 /f</div><div class="line">reg add &quot;HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Search&quot; /v &quot;CanCortanaBeEnabled&quot; /t REG_DWORD /d 0 /f</div></pre></td></tr></table></figure>
